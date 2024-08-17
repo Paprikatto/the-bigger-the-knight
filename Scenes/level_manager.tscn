@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cadqjb45qym6o"]
+
+[ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_cereu"]
+[ext_resource type="PackedScene" uid="uid://p474idq06jo4" path="res://Scenes/test_scene.tscn" id="2_uu0dm"]
+[ext_resource type="PackedScene" uid="uid://w5sucauuc6mw" path="res://Scenes/game_over_menu.tscn" id="3_jg1is"]
+
+[node name="Level Manager" type="Node2D"]
+script = ExtResource("1_cereu")
+levels = Array[PackedScene]([ExtResource("2_uu0dm")])
+
+[node name="GameOverMenu" parent="." instance=ExtResource("3_jg1is")]

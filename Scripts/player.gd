@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-@export var move_speed: float = 50
+@export var move_speed: float = 60
 
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var scale_animations: AnimationPlayer = $ScaleAnimations
@@ -18,7 +18,10 @@ var max_fall_speed:float = 200
 var last_dist: float
 
 func _ready() -> void:
+	GameManager.game_over.connect(on_game_over)
+	
 	velocity.x = move_speed
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
@@ -30,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		scale_down()
 		
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_on_floor():
 		if velocity.y != max_fall_speed:
 			velocity.y += fall_speed
@@ -52,7 +55,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
-
+	
+#region Scaling
 func scale_up():
 	#TODO: check for blocking roof
 	if current_scale == 1:
@@ -70,4 +74,14 @@ func scale_down():
 		return
 	
 	current_scale -= 1
+#endregion
 	
+
+
+func _on_collision_area_body_entered(body: Node2D) -> void:
+	if body is CollisionObject2D:
+		if body.get_collision_layer_value(3):
+			GameManager.game_over.emit()
+
+func on_game_over():
+	self.queue_free()

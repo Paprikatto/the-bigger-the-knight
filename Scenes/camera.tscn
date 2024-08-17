@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://3vl5teujslnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgk6w"]
+size = Vector2(20, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wxvl"]
+size = Vector2(500, 20)
+
+[node name="Camera" type="Camera2D"]
+position = Vector2(26.9964, -1.09278)
+rotation = -0.0112184
+zoom = Vector2(3, 3)
+
+[node name="CameraDeathCollider" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraDeathCollider"]
+position = Vector2(-241.006, -0.381775)
+shape = SubResource("RectangleShape2D_wgk6w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraDeathCollider"]
+position = Vector2(240.994, 0.00481286)
+shape = SubResource("RectangleShape2D_wgk6w")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CameraDeathCollider"]
+position = Vector2(-0.116902, 137.811)
+shape = SubResource("RectangleShape2D_2wxvl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CameraDeathCollider"]
+position = Vector2(0.103662, -137.188)
+shape = SubResource("RectangleShape2D_2wxvl")
