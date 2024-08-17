@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://biymuske0kjmr"
+path="res://.godot/imported/the bigger the knight background.mp3-57e43ece4898708902f53d52f755a42c.mp3str"
+
+[deps]
+
+source_file="res://the bigger the knight background.mp3"
+dest_files=["res://.godot/imported/the bigger the knight background.mp3-57e43ece4898708902f53d52f755a42c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
