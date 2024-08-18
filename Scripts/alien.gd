@@ -36,3 +36,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			$AnimationPlayer.play("death")
 		else:
 			GameManager.game_over.emit()
+
+func death():
+	queue_free()
