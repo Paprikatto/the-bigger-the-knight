@@ -89,12 +89,10 @@ func jump():
 
 #region Scaling
 func scale_up():
-	if current_scale == 1:
-		if not normal_check.has_overlapping_bodies():
-			scale_animations.play_backwards("normal_to_small")
-	elif current_scale == 2:
-		if not big_check.has_overlapping_bodies():
-			scale_animations.play("normal_to_big")
+	if current_scale == 1 and not normal_check.has_overlapping_bodies():
+		scale_animations.play_backwards("normal_to_small")
+	elif current_scale == 2 and not big_check.has_overlapping_bodies():
+		scale_animations.play("normal_to_big")
 	else:
 		return
 		
