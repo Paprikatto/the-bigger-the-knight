@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b300id47geuj8"]
+[gd_scene load_steps=16 format=3 uid="uid://b300id47geuj8"]
 
 [ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="1_gwrcp"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sb32l"]
 [ext_resource type="Shape2D" uid="uid://dqwdlkbbefo42" path="res://player_shape.tres" id="3_wswqw"]
+[ext_resource type="AudioStream" uid="uid://biymuske0kjmr" path="res://the bigger the knight background.mp3" id="4_2vkf8"]
 
 [sub_resource type="Animation" id="Animation_l4353"]
 length = 0.001
@@ -88,14 +89,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:jump_force")
+tracks/3/path = NodePath(".:jump_factor")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [200.0, 130.0]
+"values": [1.0, 0.7]
 }
 
 [sub_resource type="Animation" id="Animation_g3yn1"]
@@ -139,24 +140,113 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:jump_force")
+tracks/3/path = NodePath(".:jump_factor")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [200.0]
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:move_factor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_37fgc"]
+resource_name = "normal_to_big"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [30.0, 60.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [7.0, 12.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:jump_factor")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:move_factor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ylmtv"]
 _data = {
 "RESET": SubResource("Animation_g3yn1"),
+"normal_to_big": SubResource("Animation_37fgc"),
 "normal_to_small": SubResource("Animation_asnmo")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdc8k"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyj8"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xglg"]
+size = Vector2(12, 6)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("big_check", "normal_check")]
+collision_layer = 16
 script = ExtResource("1_sb32l")
+big_check = NodePath("BigSizeCheck")
+normal_check = NodePath("NormalSizeCheck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -181,5 +271,32 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 shape = ExtResource("3_wswqw")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2vkf8")
+autoplay = true
+parameters/looping = false
+
+[node name="NormalSizeCheck" type="Area2D" parent="."]
+position = Vector2(0, -21)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="NormalSizeCheck"]
+visible = false
+texture = SubResource("PlaceholderTexture2D_qdc8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NormalSizeCheck"]
+shape = SubResource("RectangleShape2D_gcyj8")
+
+[node name="BigSizeCheck" type="Area2D" parent="."]
+position = Vector2(0, -42)
+collision_layer = 32
+
+[node name="Sprite2D" type="Sprite2D" parent="BigSizeCheck"]
+visible = false
+texture = SubResource("PlaceholderTexture2D_qdc8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigSizeCheck"]
+shape = SubResource("RectangleShape2D_1xglg")
 
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]

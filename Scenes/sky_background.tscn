@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg8mgqux482x1"]
+
+[ext_resource type="Texture2D" uid="uid://ch68pe1cwuaq8" path="res://Sprites/background.png" id="1_82q1j"]
+[ext_resource type="Texture2D" uid="uid://11wvverq2lmi" path="res://Sprites/clouds2-small.png" id="2_jkioj"]
+[ext_resource type="Texture2D" uid="uid://dow4s8q7fqca0" path="res://Sprites/clouds2.png" id="3_5u4cm"]
+
+[node name="SkyBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+texture_filter = 1
+position = Vector2(3, -2)
+motion_mirroring = Vector2(800, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+position = Vector2(60, -24)
+texture = ExtResource("1_82q1j")
+
+[node name="small clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(400, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="small clouds"]
+texture_filter = 1
+position = Vector2(216, 0)
+texture = ExtResource("2_jkioj")
+
+[node name="big clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(400, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="big clouds"]
+texture_filter = 1
+position = Vector2(180, -4)
+texture = ExtResource("3_5u4cm")
