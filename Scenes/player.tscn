@@ -275,7 +275,7 @@ shape = ExtResource("3_wswqw")
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2vkf8")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [node name="NormalSizeCheck" type="Area2D" parent="."]
 position = Vector2(0, -21)
