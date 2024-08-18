@@ -1,10 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://droppdu32auu3"]
+[gd_scene load_steps=10 format=3 uid="uid://droppdu32auu3"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_45nsi"]
 [ext_resource type="Texture2D" uid="uid://vwo1vx6hx57v" path="res://Sprites/alien.png" id="1_ft42d"]
+[ext_resource type="PackedScene" uid="uid://fqj2t66a2u0i" path="res://Scenes/bullet.tscn" id="2_xo2il"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8omf4"]
 radius = 7.0
+
+[sub_resource type="Animation" id="Animation_21c3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
 
 [sub_resource type="Animation" id="Animation_7envf"]
 resource_name = "death"
@@ -91,45 +131,6 @@ tracks/0/keys = {
 "values": [2]
 }
 
-[sub_resource type="Animation" id="Animation_21c3f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6mg6"]
 _data = {
 "RESET": SubResource("Animation_21c3f"),
@@ -140,6 +141,13 @@ _data = {
 
 [node name="Alien" type="Node2D"]
 script = ExtResource("1_45nsi")
+bullet_scene = ExtResource("2_xo2il")
+
+[node name="BulletSpawnLeft" type="Node2D" parent="."]
+position = Vector2(-16, 0)
+
+[node name="BulletSpawnRight" type="Node2D" parent="."]
+position = Vector2(16, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

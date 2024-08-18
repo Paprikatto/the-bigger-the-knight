@@ -26,8 +26,23 @@ func _process(delta: float) -> void:
 		shot_timer = shoot_interval
 
 func shoot():
+	if bullet_scene != null:
+		var bullet = bullet_scene.instantiate()
+		if bullet is Bullet:
+			get_parent().add_child(bullet)
+			if look_right:
+				bullet.set_global_position($BulletSpawnRight.global_position)
+			else:
+				bullet.set_global_position($BulletSpawnLeft.global_position)
+			bullet.speed = shot_speed
+		else:
+			bullet.queue_free()
+			return
+	else:
+		return
 	$AnimationPlayer.play("shoot")
 	$AnimationPlayer.queue("idle")
+
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
