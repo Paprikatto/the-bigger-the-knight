@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=4 uid="uid://bup3yl3yykson"]
+
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_kkijx"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="2_wy3ry"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_vojna"]
+
+[sub_resource type="Curve2D" id="Curve2D_wabj0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -6, 13, 0, 0, 0, 0, 229, 13, 0, 0, 0, 0, 383, -31)
+}
+point_count = 3
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD9/wEABAAAAAAAAAD9/wIABAAAAAEAAAD9/wMABAAAAAIAAAD+/wEABAABAAAAAAD+/wIABAABAAEAAAD+/wMABAABAAIAAAD//wEABAABAAAAAAD//wIABAABAAEAAAD//wMABAABAAIAAAAAAAEABAABAAAAAAAAAAIABAABAAEAAAAAAAMABAABAAIAAAABAAEABAACAAAAAAABAAIABAABAAEAAAABAAMABAABAAIAAAACAAIABAABAAAAAAACAAMABAABAAIAAAADAAIABAABAAAAAAADAAMABAABAAIAAAAEAAIABAABAAAAAAAEAAMABAABAAIAAAAFAAIABAACAAAAAAAFAAMABAACAAIAAAADAP//BAAAAAEAAAAEAP//BAACAAEAAAADAAAABAAAAAIAAAAEAAAABAACAAIAAAADAPz/BAAAAAAAAAAEAPz/BAACAAAAAAADAP3/BAAAAAEAAAADAP7/BAAAAAEAAAAEAP3/BAACAAEAAAAEAP7/BAACAAEAAAAJAAIABAAAAAAAAAAJAAMABAAAAAEAAAAJAAQABAAAAAIAAAAKAAIABAABAAAAAAAKAAMABAABAAEAAAAKAAQABAABAAIAAAALAAIABAABAAAAAAALAAMABAABAAEAAAALAAQABAABAAIAAAAMAAIABAABAAAAAAAMAAMABAABAAEAAAAMAAQABAABAAIAAAANAAIABAABAAAAAAANAAMABAABAAEAAAANAAQABAABAAIAAAAOAAIABAACAAAAAAAOAAMABAACAAEAAAAOAAQABAACAAIAAAA=")
+tile_set = ExtResource("1_kkijx")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_wabj0")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("2_wy3ry")]
+position = Vector2(-6, 13)
+rotation = 0.0
+speed = 45.0
+
+[node name="Player" parent="." instance=ExtResource("3_vojna")]
+position = Vector2(-27, -4)
