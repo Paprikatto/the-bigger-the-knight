@@ -26,12 +26,15 @@ func _process(delta: float) -> void:
 		shot_timer = shoot_interval
 
 func shoot():
+	#make sure that alien dont shoot during death animation
 	if $AnimationPlayer.current_animation == "death":
 		return
 	if bullet_scene != null:
 		var bullet = bullet_scene.instantiate()
+		#make sure that assigned packed scene is of type Bullet
 		if bullet is Bullet:
 			get_parent().add_child(bullet)
+			#chose bullet spawn point based on facing direction
 			if look_right:
 				bullet.set_global_position($BulletSpawnRight.global_position)
 			else:
