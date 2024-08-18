@@ -10,4 +10,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if body.current_scale == 3:
 			$AnimationPlayer.play("press")
-			$Area2D.monitoring = false
+			$Area2D.set_deferred("monitoring", false)
