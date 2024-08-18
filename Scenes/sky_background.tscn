@@ -21,7 +21,7 @@ motion_mirroring = Vector2(400, 300)
 
 [node name="Sprite2D" type="Sprite2D" parent="small clouds"]
 texture_filter = 1
-position = Vector2(216, 0)
+position = Vector2(216, 6)
 texture = ExtResource("2_jkioj")
 
 [node name="big clouds" type="ParallaxLayer" parent="."]
@@ -30,5 +30,5 @@ motion_mirroring = Vector2(400, 300)
 
 [node name="Sprite2D" type="Sprite2D" parent="big clouds"]
 texture_filter = 1
-position = Vector2(180, -4)
+position = Vector2(180, 10)
 texture = ExtResource("3_5u4cm")
