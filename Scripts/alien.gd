@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 		shot_timer = shoot_interval
 
 func shoot():
+	if $AnimationPlayer.current_animation == "death":
+		return
 	if bullet_scene != null:
 		var bullet = bullet_scene.instantiate()
 		if bullet is Bullet:
