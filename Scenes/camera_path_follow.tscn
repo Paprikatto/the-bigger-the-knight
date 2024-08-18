@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/target.gd" id="1_kmbsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgk6w"]
-size = Vector2(20, 250)
+size = Vector2(20, 400)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wxvl"]
-size = Vector2(500, 20)
+size = Vector2(700, 20)
 
 [node name="CameraPathFollow2D" type="PathFollow2D"]
 position = Vector2(-11.0074, 0.914368)
@@ -32,9 +32,9 @@ position = Vector2(240.994, 0.00481286)
 shape = SubResource("RectangleShape2D_wgk6w")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera/CameraDeathCollider"]
-position = Vector2(-0.116902, 137.811)
+position = Vector2(-0.249782, 191.1)
 shape = SubResource("RectangleShape2D_2wxvl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera/CameraDeathCollider"]
-position = Vector2(0.103662, -137.188)
+position = Vector2(0.28838, -207.899)
 shape = SubResource("RectangleShape2D_2wxvl")
