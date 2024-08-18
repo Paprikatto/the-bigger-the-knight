@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=4 uid="uid://n7vn4k5vp5qv"]
+
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_bues1"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="2_fjdby"]
+[ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="3_v0moq"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="4_ok175"]
+[ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="5_l2bu1"]
+[ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="5_w238d"]
+
+[sub_resource type="Curve2D" id="Curve2D_p5gem"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -41, -4, 0, 0, 0, 0, 282, -3)
+}
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ynt5x"]
+font = ExtResource("5_w238d")
+font_size = 25
+
+[node name="Level3" type="Node2D"]
+
+[node name="TileMap" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD+/wEABAAAAAAAAAD+/wIABAAAAAEAAAD+/wMABAAAAAIAAAD//wEABAABAAAAAAD//wIABAABAAEAAAD//wMABAABAAIAAAAAAAEABAABAAAAAAAAAAIABAABAAEAAAAAAAMABAABAAIAAAABAAEAAAABAAAAAAABAAIABAABAAEAAAABAAMAAAABAAIAAAACAAEABAABAAAAAAACAAIABAABAAEAAAACAAMABAABAAIAAAADAAEABAABAAAAAAADAAIABAABAAEAAAADAAMABAABAAIAAAAEAAEAAAABAAAAAAAEAAIABAABAAEAAAAEAAMAAAABAAIAAAAFAAEABAABAAAAAAAFAAIABAABAAEAAAAFAAMABAABAAIAAAAGAAEABAABAAAAAAAGAAIABAABAAEAAAAGAAMAAAAEAAEAAAAHAAEABAACAAAAAAAHAAIABAACAAEAAAAHAAMABAACAAEAAAAIAAQABAABAAAAAAAJAAQABAABAAAAAAAKAAQAAAABAAAAAAALAAQAAAABAAAAAAAMAAQABAABAAAAAAAGAAQABAAAAAEAAAAHAAQAAAADAAIAAAAGAAUAAAAAAAIAAAAHAAUABAABAAIAAAAIAAUABAABAAIAAAAJAAUABAABAAIAAAAKAAUABAABAAIAAAALAAUABAABAAIAAAAMAAUABAABAAIAAAANAAUABAABAAIAAAAOAAUABAABAAIAAAAPAAUABAABAAIAAAAQAAUABAABAAIAAAARAAUABAACAAIAAAANAAQABAABAAAAAAAOAAQABAABAAAAAAAPAAQABAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAACAAAAAAA=")
+tile_set = ExtResource("1_bues1")
+
+[node name="Player" parent="." instance=ExtResource("2_fjdby")]
+position = Vector2(-20, -2)
+
+[node name="Alien" parent="." instance=ExtResource("3_v0moq")]
+position = Vector2(143, 49)
+look_right = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_p5gem")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_ok175")]
+position = Vector2(-41, -4)
+rotation = 0.00309597
+
+[node name="Portal" parent="Path2D" instance=ExtResource("5_l2bu1")]
+position = Vector2(271, 43)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 42.0
+offset_top = -33.0
+offset_right = 599.0
+offset_bottom = -10.0
+scale = Vector2(0.36, 0.36)
+text = "To kill an Alien, you need to be large"
+label_settings = SubResource("LabelSettings_ynt5x")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 176.0
+offset_top = -13.0
+offset_right = 733.0
+offset_bottom = 10.0
+scale = Vector2(0.36, 0.36)
+text = "Watch out for bullets"
+label_settings = SubResource("LabelSettings_ynt5x")

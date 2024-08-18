@@ -89,6 +89,8 @@ func jump():
 
 #region Scaling
 func scale_up():
+	if $ScaleAnimations.is_playing():
+		return
 	if current_scale == 1 and not normal_check.has_overlapping_bodies():
 		scale_animations.play_backwards("normal_to_small")
 	elif current_scale == 2 and not big_check.has_overlapping_bodies():
@@ -99,6 +101,8 @@ func scale_up():
 	current_scale += 1
 	
 func scale_down():
+	if $ScaleAnimations.is_playing():
+		return
 	#animations
 	if current_scale == 2:
 		scale_animations.play("normal_to_small")
