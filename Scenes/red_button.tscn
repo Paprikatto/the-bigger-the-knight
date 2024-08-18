@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dau4dftho6wc7" path="res://Sprites/red button.png" id="1_22fqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpyj7"]
-size = Vector2(28, 6)
+size = Vector2(26, 6)
 
 [sub_resource type="Animation" id="Animation_wr1m1"]
 length = 0.001
@@ -114,6 +114,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_pylmp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
 position = Vector2(0, -6)
 texture = SubResource("PlaceholderTexture2D_f6l5w")
 

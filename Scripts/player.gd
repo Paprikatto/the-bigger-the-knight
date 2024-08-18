@@ -107,6 +107,7 @@ func scale_up():
 	else:
 		return
 	current_scale += 1
+	GameManager.player_changed_size.emit()
 	
 func scale_down():
 	if $ScaleAnimations.is_playing():
@@ -120,6 +121,7 @@ func scale_down():
 		return
 	
 	current_scale -= 1
+	GameManager.player_changed_size.emit()
 #endregion
 	
 
@@ -133,5 +135,5 @@ func on_game_over():
 	self.queue_free()
 
 
-func _on_interactable_check_area_entered(area: Area2D) -> void:
+func _on_interactable_check_area_entered(_area: Area2D) -> void:
 	current_just_landed = just_landed_time
