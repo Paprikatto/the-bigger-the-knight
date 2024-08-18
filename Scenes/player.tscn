@@ -1,9 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://b300id47geuj8"]
+[gd_scene load_steps=18 format=3 uid="uid://b300id47geuj8"]
 
 [ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="1_gwrcp"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sb32l"]
 [ext_resource type="Shape2D" uid="uid://dqwdlkbbefo42" path="res://player_shape.tres" id="3_wswqw"]
 [ext_resource type="AudioStream" uid="uid://biymuske0kjmr" path="res://the bigger the knight background.mp3" id="4_2vkf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ut4y"]
+size = Vector2(4, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_10m3g"]
+size = Vector2(4, 2)
 
 [sub_resource type="Animation" id="Animation_l4353"]
 length = 0.001
@@ -252,6 +258,19 @@ normal_check = NodePath("NormalSizeCheck")
 texture_filter = 1
 texture = ExtResource("1_gwrcp")
 
+[node name="InteractableCheck" type="Area2D" parent="Sprite2D"]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/InteractableCheck"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_0ut4y")
+debug_color = Color(0.765774, 0.376096, 0.636999, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/InteractableCheck"]
+position = Vector2(0, 15)
+texture = SubResource("PlaceholderTexture2D_10m3g")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_wswqw")
 
@@ -299,4 +318,5 @@ texture = SubResource("PlaceholderTexture2D_qdc8k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigSizeCheck"]
 shape = SubResource("RectangleShape2D_1xglg")
 
+[connection signal="area_entered" from="Sprite2D/InteractableCheck" to="." method="_on_interactable_check_area_entered"]
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
