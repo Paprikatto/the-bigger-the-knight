@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dipqvmh7n65uk"]
+[gd_scene load_steps=10 format=4 uid="uid://dipqvmh7n65uk"]
 
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_sgebe"]
 [ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="2_i7wbn"]
@@ -37,26 +37,10 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_fhsl0"]
-resource_name = "move_rev"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("env:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-130, 0), Vector2(130, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2c5e"]
 _data = {
 "RESET": SubResource("Animation_fxbrf"),
-"move": SubResource("Animation_0r2mm"),
-"move_rev": SubResource("Animation_fhsl0")
+"move": SubResource("Animation_0r2mm")
 }
 
 [node name="CutsceneTalking" type="Node2D"]
@@ -65,8 +49,7 @@ position = Vector2(5, -69)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
-[node name="Dialog" parent="." node_paths=PackedStringArray("animation", "label", "dialogTable") instance=ExtResource("4_wyaib")]
-animation = NodePath("../AnimationPlayer")
+[node name="Dialog" parent="." node_paths=PackedStringArray("label", "dialogTable") instance=ExtResource("4_wyaib")]
 label = NodePath("../Window/Panel/Label")
 dialogTable = [NodePath("dialog_line"), NodePath("dialog_line2"), NodePath("dialog_line3")]
 
