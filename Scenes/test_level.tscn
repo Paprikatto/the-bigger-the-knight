@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=4 uid="uid://fsvm6758ybtt"]
+
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_rtvnl"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="2_hsqer"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="3_lh4im"]
+[ext_resource type="PackedScene" uid="uid://rxron3ovm1fx" path="res://Scenes/snow.tscn" id="4_4aela"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGACkAAQABAAAAAAAHACkAAQABAAAAAAAIACkAAQABAAAAAAAJACkAAQABAAAAAAAKACkAAQABAAAAAAALACkAAQABAAAAAAAMACkAAQABAAAAAAANACkAAQABAAAAAAAOACkAAQACAAAAAAAFACkAAQAAAAAAAAAFACoAAQAAAAEAAAAFACsAAQAAAAEAAAAFACwAAQAAAAEAAAAFAC0AAQAAAAEAAAAOACoAAQACAAEAAAAOACsAAQACAAEAAAAOACwAAQACAAEAAAAOAC0AAQACAAEAAAAGACoAAQABAAEAAAAGACsAAQABAAEAAAAGACwAAQABAAEAAAAGAC0AAQABAAEAAAAGAC4AAQABAAEAAAAHAC4AAQABAAEAAAAIAC0AAQABAAEAAAAJAC0AAQABAAEAAAAJACwAAQABAAEAAAAKACwAAQABAAEAAAAJACsAAQABAAEAAAAIACsAAQABAAEAAAAHACsAAQABAAEAAAAHACwAAQABAAEAAAAIACwAAQABAAEAAAAJACoAAQABAAEAAAAIACoAAQABAAEAAAAHACoAAQABAAEAAAAHAC0AAQABAAEAAAAKACsAAQABAAEAAAAKAC0AAQABAAEAAAAKAC4AAQABAAEAAAALAC0AAQABAAEAAAALACwAAQABAAEAAAALACsAAQABAAEAAAAMACsAAQABAAEAAAAMACwAAQABAAEAAAAMAC0AAQABAAEAAAAMAC4AAQABAAEAAAANACwAAQABAAEAAAANACsAAQABAAEAAAANAC0AAQABAAEAAAANACoAAQABAAEAAAAMACoAAQABAAEAAAALACoAAQABAAEAAAAKACoAAQABAAEAAAA=")
+tile_set = ExtResource("1_rtvnl")
+
+[node name="Player" parent="." instance=ExtResource("2_hsqer")]
+position = Vector2(142, 636)
+
+[node name="CameraPathFollow2D" parent="." instance=ExtResource("3_lh4im")]
+position = Vector2(211, 639)
+
+[node name="Node2D" parent="CameraPathFollow2D" instance=ExtResource("4_4aela")]
+z_index = -1
+position = Vector2(41.33, -169.416)
+rotation = -0.00986962

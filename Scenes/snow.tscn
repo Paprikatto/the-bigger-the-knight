@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://rxron3ovm1fx"]
+
+[ext_resource type="Texture2D" uid="uid://dp0hi3gk2r51k" path="res://Sprites/snow_particles.png" id="1_23rkx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl27q"]
+atlas = ExtResource("1_23rkx")
+region = Rect2(0.00641823, 0.00641823, 5.12411, 4.98177)
+
+[sub_resource type="Gradient" id="Gradient_m0fnl"]
+offsets = PackedFloat32Array(0, 0.54, 1)
+colors = PackedColorArray(0.654902, 1, 1, 1, 0.847059, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrua3"]
+atlas = ExtResource("1_23rkx")
+region = Rect2(4.9664, 0, 5.0336, 5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 48
+lifetime = 10.0
+speed_scale = 0.5
+randomness = 1.0
+texture = SubResource("AtlasTexture_hl27q")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 40)
+gravity = Vector2(0, 15)
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_m0fnl")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+amount = 48
+lifetime = 10.0
+speed_scale = 0.5
+randomness = 1.0
+texture = SubResource("AtlasTexture_nrua3")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 40)
+gravity = Vector2(0, 15)
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_m0fnl")
