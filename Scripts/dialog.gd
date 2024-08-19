@@ -14,7 +14,7 @@ var lastWho : Who
 var i : int = 0
 var numLetter = 0
 var max : int
-var letterDelay = .05
+@export var letterDelay = .05
 
 func _ready():
 	timer = $Timer
@@ -28,7 +28,7 @@ func _ready():
 			animation.play("move_rev")
 		else:
 			animation.play("move")
-
+		animation.seek(.4)
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
 		i+=1
@@ -36,9 +36,7 @@ func _unhandled_input(event):
 		label.visible_characters = numLetter
 		var sameSide = false
 		if i >= max:
-			#koniec cutscenki tutaj przejscie dalej
-			
-			pass
+			GameManager.next_level.emit()
 		else:
 			if lastWho == dialogTable[i].who:
 				sameSide = true
