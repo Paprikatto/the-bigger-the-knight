@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmav3xc81a0j"]
+
+[ext_resource type="Script" path="res://Scripts/wooden_floor.gd" id="1_otwmu"]
+[ext_resource type="Texture2D" uid="uid://cvpv0faiwo5g4" path="res://Sprites/wooden floor.png" id="1_wni2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw3m4"]
+atlas = ExtResource("1_wni2n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slc0i"]
+atlas = ExtResource("1_wni2n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjjhg"]
+atlas = ExtResource("1_wni2n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crnqx"]
+atlas = ExtResource("1_wni2n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eivjb"]
+atlas = ExtResource("1_wni2n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1l1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw3m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slc0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjjhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crnqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eivjb")
+}],
+"loop": false,
+"name": &"break",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1nfi"]
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e70je"]
+size = Vector2(12, 7)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rn2ph"]
+size = Vector2(12, 7)
+
+[node name="WoodenFloor" type="StaticBody2D"]
+script = ExtResource("1_otwmu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_x1l1h")
+animation = &"break"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_r1nfi")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_e70je")
+debug_color = Color(0.921717, 0.0838541, 0.65128, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
+position = Vector2(0, -5)
+texture = SubResource("PlaceholderTexture2D_rn2ph")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

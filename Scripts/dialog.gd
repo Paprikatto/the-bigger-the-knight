@@ -12,6 +12,7 @@ var timer : Timer
 var lastWho : Who
 
 var i : int = 0
+
 var numLetter = 0
 var max : int
 var letterDelay = .05
@@ -20,8 +21,12 @@ func _ready():
 	timer = $Timer
 	max = dialogTable.size()
 	timer.start(letterDelay)
+
+var max_dialog : int
+
+
 	
-	if max > 0:
+	if max_dialog > 0:
 		label.text = dialogTable[i].text
 		lastWho = dialogTable[i].who
 		if dialogTable[i].who == Who.FIRST:
@@ -35,10 +40,10 @@ func _unhandled_input(event):
 		numLetter = 0
 		label.visible_characters = numLetter
 		var sameSide = false
-		if i >= max:
+		if i >= max_dialog:
+
 			#koniec cutscenki tutaj przejscie dalej
-			
-			pass
+			GameManager.next_level.emit()
 		else:
 			if lastWho == dialogTable[i].who:
 				sameSide = true

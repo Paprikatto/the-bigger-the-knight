@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cadqjb45qym6o"]
+[gd_scene load_steps=10 format=3 uid="uid://cadqjb45qym6o"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_cereu"]
+[ext_resource type="PackedScene" uid="uid://yuyyjs61e83q" path="res://Scenes/cutscene_talking.tscn" id="2_n7aep"]
 [ext_resource type="PackedScene" uid="uid://p474idq06jo4" path="res://Scenes/levels/tutorial_scene.tscn" id="2_uu0dm"]
 [ext_resource type="PackedScene" uid="uid://w5sucauuc6mw" path="res://Scenes/game_over_menu.tscn" id="3_jg1is"]
 [ext_resource type="PackedScene" uid="uid://bup3yl3yykson" path="res://Scenes/levels/level_2.tscn" id="3_pk6k6"]
@@ -11,7 +12,7 @@
 
 [node name="Level Manager" type="Node2D"]
 script = ExtResource("1_cereu")
-levels = Array[PackedScene]([ExtResource("2_uu0dm"), ExtResource("3_pk6k6"), ExtResource("4_7ey28")])
+levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6")])
 end_game_screen = ExtResource("4_j23kw")
 
 [node name="NextLevelAnimation" parent="." instance=ExtResource("3_r2icj")]

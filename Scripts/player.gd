@@ -30,6 +30,11 @@ var fall_factor: float = 1.5
 @export var jump_buffer: float = 0.1
 var current_jump_buffer: float = 0
 
+#just landed check
+var current_just_landed: float = 0
+var just_landed_time: float = 0.2
+
+
 
 var last_dist: float
 
@@ -77,12 +82,16 @@ func _physics_process(_delta: float) -> void:
 
 func _process(delta: float) -> void:
 	#timers
-	if(current_jump_buffer > 0):
+	if current_jump_buffer > 0:
 		current_jump_buffer -= delta
+	if current_just_landed > 0:
+		current_just_landed -= delta
 		
 	#jump buffer
 	if is_on_floor() and current_jump_buffer > 0:
 		jump()
+	
+	
 
 func jump():
 	velocity.y = -jump_force * jump_factor
@@ -97,8 +106,8 @@ func scale_up():
 		scale_animations.play("normal_to_big")
 	else:
 		return
-		
 	current_scale += 1
+	GameManager.player_changed_size.emit()
 	
 func scale_down():
 	if $ScaleAnimations.is_playing():
@@ -112,6 +121,7 @@ func scale_down():
 		return
 	
 	current_scale -= 1
+	GameManager.player_changed_size.emit()
 #endregion
 	
 
@@ -123,3 +133,7 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 
 func on_game_over():
 	self.queue_free()
+
+
+func _on_interactable_check_area_entered(_area: Area2D) -> void:
+	current_just_landed = just_landed_time

@@ -26,8 +26,29 @@ func _process(delta: float) -> void:
 		shot_timer = shoot_interval
 
 func shoot():
+	#make sure that alien dont shoot during death animation
+	if $AnimationPlayer.current_animation == "death":
+		return
+	if bullet_scene != null:
+		var bullet = bullet_scene.instantiate()
+		#make sure that assigned packed scene is of type Bullet
+		if bullet is Bullet:
+			get_parent().add_child(bullet)
+			#chose bullet spawn point based on facing direction
+			if look_right:
+				bullet.set_global_position($BulletSpawnRight.global_position)
+			else:
+				bullet.set_global_position($BulletSpawnLeft.global_position)
+			bullet.speed = shot_speed
+		else:
+			bullet.queue_free()
+			return
+	else:
+		return
 	$AnimationPlayer.play("shoot")
 	$AnimationPlayer.queue("idle")
+	$AudioStreamPlayer2D.play()
+
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -36,3 +57,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			$AnimationPlayer.play("death")
 		else:
 			GameManager.game_over.emit()
+
+func death():
+	queue_free()
