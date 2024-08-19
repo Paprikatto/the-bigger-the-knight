@@ -29,8 +29,7 @@ func _unhandled_input(event):
 		
 		if i >= max:
 			#koniec cutscenki tutaj przejscie dalej
-			
-			pass
+			GameManager.next_level.emit()
 		else:
 			if dialogTable[i].who == Who.FIRST:
 				first.visible = true
