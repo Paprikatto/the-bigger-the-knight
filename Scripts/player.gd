@@ -34,15 +34,21 @@ var current_jump_buffer: float = 0
 var current_just_landed: float = 0
 var just_landed_time: float = 0.2
 
-
-
 var last_dist: float
+
+@export var songs: Array[AudioStreamMP3]
 
 func _ready() -> void:
 	$ScaleAnimations.play("RESET")
 	GameManager.game_over.connect(on_game_over)
 	
 	velocity.x = move_speed
+	
+	#audio
+	if not songs.is_empty():
+		$BackgroundMusic.stream = songs[GameManager.audio % songs.size()]
+		$BackgroundMusic.play()
+		GameManager.audio += 1
 	
 
 func _input(event: InputEvent) -> void:
