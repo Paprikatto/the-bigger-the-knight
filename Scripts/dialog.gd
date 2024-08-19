@@ -1,42 +1,57 @@
 extends dialog_line
 class_name dialog
 
-@export var first : Node
-@export var second : Node
+@export var animation : AnimationPlayer
+
+var timer : Timer
 
 @export var label : Label
 
 @export var dialogTable : Array[dialog_line]
 
+var lastWho : Who
+
 var i : int = 0
-var max_dialog : int
+var numLetter = 0
+var max : int
+@export var letterDelay = .05
 
 func _ready():
-	max_dialog = dialogTable.size()
+	timer = $Timer
+	max = dialogTable.size()
+	timer.start(letterDelay)
 	
-	if max_dialog > 0:
+	if max > 0:
 		label.text = dialogTable[i].text
+		lastWho = dialogTable[i].who
 		if dialogTable[i].who == Who.FIRST:
-			first.visible = true
-			second.visible = false
+			animation.play("move_rev")
 		else:
-			first.visible = false
-			second.visible = true
-
+			animation.play("move")
+		animation.seek(.4)
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
 		i+=1
-		
-		if i >= max_dialog:
-			#koniec cutscenki tutaj przejscie dalej
+		numLetter = 0
+		label.visible_characters = numLetter
+		var sameSide = false
+		if i >= max:
 			GameManager.next_level.emit()
 		else:
-			if dialogTable[i].who == Who.FIRST:
-				first.visible = true
-				second.visible = false
+			if lastWho == dialogTable[i].who:
+				sameSide = true
+			lastWho = dialogTable[i].who
+			if dialogTable[i].who == Who.FIRST and !sameSide:
+				animation.play("move_rev")
 			else:
-				first.visible = false
-				second.visible = true
-				
+				if !sameSide:
+					animation.play("move")
 			label.text = dialogTable[i].text
-		
+			print(label.text)
+
+
+func _on_timer_timeout():
+	if numLetter <= label.text.length():
+		numLetter+=1
+		label.visible_characters = numLetter
+		timer.start(letterDelay)
