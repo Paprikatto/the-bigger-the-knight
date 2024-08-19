@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func on_game_over():
 	$AnimationPlayer.play("show")
+	$AudioStreamPlayer2D.play()
 
 
 func _on_replay_button_button_up() -> void:
