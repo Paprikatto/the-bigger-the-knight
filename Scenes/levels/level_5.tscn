@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2ytcj0s7agwv"]
+[gd_scene load_steps=12 format=3 uid="uid://bin8j04fwvk50"]
 
 [ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_ty566"]
-[ext_resource type="PackedScene" uid="uid://rxron3ovm1fx" path="res://Scenes/snow.tscn" id="2_b8wil"]
+[ext_resource type="PackedScene" uid="uid://b02oht4ddr8kf" path="res://Scenes/snow.tscn" id="2_b8wil"]
 [ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_7mnyh"]
+[ext_resource type="Script" path="res://Scripts/slow_down_area.gd" id="3_534e2"]
 [ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="4_iwmql"]
-[ext_resource type="PackedScene" uid="uid://durbrbrp2id1f" path="res://Scenes/ice.tscn" id="5_uqkgy"]
+[ext_resource type="PackedScene" uid="uid://dsl65pos6en4w" path="res://Scenes/ice.tscn" id="5_uqkgy"]
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="6_b456u"]
 [ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="7_r5445"]
 [ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="8_77wca"]
 
 [sub_resource type="Curve2D" id="Curve2D_8sxkx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -192, -8, 0, 0, 0, 0, 48, -152, -28, -44, 28, 44, 440, -136, 0, 0, 0, 0, 568, -64)
+"points": PackedVector2Array(0, 0, 0, 0, -192, -8, -33.3879, 6.29961, 33.3879, -6.29961, 48, -152, -28, -44, 28, 44, 440, -136, 0, 0, 0, 0, 568, -64)
 }
 point_count = 4
 
@@ -24,13 +25,20 @@ font_size = 20
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8sxkx")
 
-[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("1_ty566")]
+[node name="CameraPathFollow2D" parent="Path2D" node_paths=PackedStringArray("slow_down_areas") instance=ExtResource("1_ty566")]
 position = Vector2(-192, -8)
 rotation = -0.54042
 speed = 50.0
+slow_down_areas = [NodePath("SlowDownArea")]
 
-[node name="Node2D" parent="Path2D/CameraPathFollow2D" instance=ExtResource("2_b8wil")]
+[node name="Snow" parent="Path2D/CameraPathFollow2D" instance=ExtResource("2_b8wil")]
 position = Vector2(175.308, -171.73)
+
+[node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
+script = ExtResource("3_534e2")
+start = 1
+stop = 50
+speed_factor = 0.3
 
 [node name="Player" parent="." instance=ExtResource("3_7mnyh")]
 position = Vector2(-168, 8)
@@ -41,7 +49,7 @@ offset_top = -64.0
 offset_right = 88.0
 offset_bottom = 23.0
 scale = Vector2(0.5, 0.5)
-text = "You have to be small or ice will broke"
+text = "You have to be small or ice will brake"
 label_settings = SubResource("LabelSettings_278he")
 autowrap_mode = 2
 

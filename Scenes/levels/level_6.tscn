@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=4 uid="uid://tddmpo7nefh3"]
+
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="1_4sguo"]
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="2_6jrl8"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="4_fbb33"]
+[ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="5_r4r54"]
+[ext_resource type="Script" path="res://Scripts/slow_down_area.gd" id="5_uyiuy"]
+[ext_resource type="PackedScene" uid="uid://b02oht4ddr8kf" path="res://Scenes/snow.tscn" id="6_a3r3l"]
+[ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="7_ea5y3"]
+[ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="8_myuaj"]
+[ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="9_6rhqr"]
+[ext_resource type="PackedScene" uid="uid://dw0g78reqmuwv" path="res://Scenes/ice2.tscn" id="11_vo13v"]
+
+[sub_resource type="Curve2D" id="Curve2D_3qfsb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 10, 0, -30.3855, -11.1919, 30.3855, 11.1919, 197, 31, -16.0459, -20.0092, 16.0459, 20.0092, 297, 101, -10.0649, -20.1298, 10.0649, 20.1298, 422, 198, 0, 0, 0, 0, 547, 210)
+}
+point_count = 5
+
+[node name="Level6" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4sguo")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wEAAQAAAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAAEAAEAAQACAAAAAAD//wIAAQAAAAIAAAABAAIAAQABAAIAAAAAAAIAAQABAAIAAAACAAIAAQABAAIAAAADAAIAAQABAAIAAAAEAAIAAQACAAIAAAALAAMAAQAAAAAAAAAMAAMAAQACAAAAAAALAAQAAQAAAAIAAAAMAAQAAQACAAIAAAAUAAQAAQAAAAAAAAAVAAQAAQACAAAAAAAUAAUAAQAAAAIAAAAVAAUAAQACAAIAAAAUAAMAAgAAAAAAAAAQAAcAAQAAAAAAAAARAAcAAQACAAAAAAANAAcAAQADAAAAAAAQAAgAAQAAAAIAAAARAAgAAQACAAIAAAAVAAYAAgACAAAAAAAUAAcAAQAAAAMAAAAVAAcAAQABAAMAAAAWAAcAAQABAAMAAAAXAAcAAQACAAMAAAAYAAgAAQAAAAMAAAAZAAgAAQACAAMAAAAYAAcAAgAAAAAAAAASAAwAAQABAAAAAAATAAwAAQABAAAAAAARAA0AAQAAAAEAAAAUAAwAAQABAAAAAAAVAAwAAQABAAAAAAAWAAwAAQABAAAAAAAXAAwAAQABAAAAAAAYAAwAAQACAAAAAAAcAAkAAQADAAAAAAARAAwAAQAAAAAAAAAYAA0AAQACAAEAAAAYAA4AAQACAAIAAAARAA4AAQAAAAIAAAASAA4AAQABAAIAAAATAA4AAQABAAIAAAAUAA4AAQABAAIAAAAVAA4AAQABAAIAAAAWAA4AAQABAAIAAAAXAA4AAQABAAIAAAASAA0AAQABAAEAAAATAA0AAQABAAEAAAAUAA0AAQABAAEAAAAVAA0AAQABAAEAAAAWAA0AAQABAAEAAAAXAA0AAQABAAEAAAAcAAsAAQAAAAMAAAAdAAsAAQABAAMAAAAbAA4AAQAAAAMAAAAcAA4AAQABAAMAAAAeAAsAAQABAAMAAAAfAAsAAQACAAMAAAAgAAoAAQAAAAIAAAAhAAoAAQACAAIAAAAgAAkAAQAAAAEAAAAgAAgAAQAAAAEAAAAgAAcAAQAAAAEAAAAgAAYAAQAAAAEAAAAgAAUAAQAAAAEAAAAgAAQAAQAAAAEAAAAhAAkAAQACAAEAAAAhAAgAAQACAAEAAAAhAAcAAQACAAEAAAAhAAYAAQACAAEAAAAhAAUAAQACAAEAAAAhAAQAAQACAAEAAAAgAAMAAQAAAAAAAAAhAAMAAQACAAAAAAAdAA4AAQABAAMAAAAeAA4AAQABAAMAAAAfAA4AAQABAAMAAAAgAA4AAQABAAMAAAAhAA4AAQABAAMAAAAiAA4AAQABAAMAAAAjAA4AAQABAAMAAAAkAA4AAQABAAMAAAAlAA4AAQACAAMAAAA=")
+tile_set = ExtResource("2_6jrl8")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3qfsb")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_fbb33")]
+position = Vector2(10, 0)
+rotation = 0.164281
+
+[node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
+script = ExtResource("5_uyiuy")
+start = 350
+stop = 450
+
+[node name="Snow" parent="Path2D/CameraPathFollow2D" instance=ExtResource("6_a3r3l")]
+position = Vector2(0, -180)
+
+[node name="Alien" parent="." instance=ExtResource("5_r4r54")]
+position = Vector2(327, 43)
+shoot_interval = 1.5
+
+[node name="Alien2" parent="." instance=ExtResource("5_r4r54")]
+z_index = -1
+position = Vector2(392, 101)
+shoot_interval = 3.0
+shot_speed = 150.0
+
+[node name="RedButton" parent="." instance=ExtResource("7_ea5y3")]
+position = Vector2(367, 112)
+
+[node name="Doors" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("8_myuaj")]
+position = Vector2(454, 208)
+connected_buttons = [NodePath("../RedButton")]
+
+[node name="Portal" parent="." instance=ExtResource("9_6rhqr")]
+position = Vector2(570, 209)
+
+[node name="Ice" parent="." instance=ExtResource("11_vo13v")]
+position = Vector2(120, 24)
+
+[node name="Ice4" parent="." instance=ExtResource("11_vo13v")]
+position = Vector2(440, 184)
+
+[node name="Ice2" parent="." instance=ExtResource("11_vo13v")]
+position = Vector2(296, 120)
+
+[node name="Ice3" parent="." instance=ExtResource("11_vo13v")]
+position = Vector2(312, 120)
