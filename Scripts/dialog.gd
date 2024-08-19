@@ -16,6 +16,8 @@ var numLetter = 0
 var size : int
 @export var letterDelay = .05
 
+var whole_text_visible: bool = false
+
 func _ready():
 	timer = $Timer
 	size = dialogTable.size()
@@ -29,25 +31,30 @@ func _ready():
 		else:
 			animation.play("move")
 		animation.seek(.4)
+
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
-		i+=1
-		numLetter = 0
-		label.visible_characters = numLetter
-		var sameSide = false
-		if i >= size:
-			GameManager.next_level.emit()
-		else:
-			if lastWho == dialogTable[i].who:
-				sameSide = true
-			lastWho = dialogTable[i].who
-			if dialogTable[i].who == DialogLine.Who.FIRST and !sameSide:
-				animation.play("move_rev")
+		if label.visible_characters == -1 or label.visible_characters >= label.text.length():
+			i+=1
+			numLetter = 0
+			label.visible_characters = numLetter
+			var sameSide = false
+			if i >= size:
+				GameManager.next_level.emit()
 			else:
-				if !sameSide:
-					animation.play("move")
-			label.text = dialogTable[i].text
-			print(label.text)
+				if lastWho == dialogTable[i].who:
+					sameSide = true
+				lastWho = dialogTable[i].who
+				if dialogTable[i].who == DialogLine.Who.FIRST and !sameSide:
+					animation.play("move_rev")
+				else:
+					if !sameSide:
+						animation.play("move")
+				label.text = dialogTable[i].text
+				print(label.text)
+		else:
+			label.visible_characters = -1
+			numLetter = label.text.length()
 
 
 func _on_timer_timeout():

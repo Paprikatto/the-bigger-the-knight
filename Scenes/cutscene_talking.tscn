@@ -139,10 +139,11 @@ zoom = Vector2(4.945, 4.945)
 animation = NodePath("../AnimationPlayer")
 label = NodePath("../Window/Panel/Label")
 dialogTable = [NodePath("dialog_line"), NodePath("dialog_line2"), NodePath("dialog_line3"), NodePath("dialog_line4"), NodePath("dialog_line5"), NodePath("dialog_line6"), NodePath("dialog_line7"), NodePath("dialog_line8"), NodePath("dialog_line9"), NodePath("dialog_line10")]
+letterDelay = 0.1
 
 [node name="dialog_line" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "Son, come here I need your help"
+text = "Son, come here, I need your help."
 who = 1
 
 [node name="dialog_line2" type="Node2D" parent="Dialog"]
@@ -165,12 +166,12 @@ text = "W-what?"
 
 [node name="dialog_line6" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "Of course you don't know that, you're just sitting in your room whole day playing games"
+text = "Of course you don't know that, you're just sitting in your room whole day playing games!"
 who = 1
 
 [node name="dialog_line7" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "But i have a new invention that can help us fight them "
+text = "But I have a new invention that can help us fight them."
 who = 1
 
 [node name="dialog_line8" type="Node2D" parent="Dialog"]
@@ -180,7 +181,7 @@ who = 1
 
 [node name="dialog_line9" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "but dad, i don't have hands"
+text = "But dad, i don't have hands."
 
 [node name="dialog_line10" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
