@@ -9,7 +9,9 @@ class_name dialog
 @export var dialogTable : Array[dialog_line]
 
 var i : int = 0
-var max_dialog : int
+var numLetter = 0
+var max : int
+@export var letterDelay = .05
 
 func _ready():
 	max_dialog = dialogTable.size()
@@ -20,15 +22,15 @@ func _ready():
 			first.visible = true
 			second.visible = false
 		else:
-			first.visible = false
-			second.visible = true
-
+			animation.play("move")
+		animation.seek(.4)
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
 		i+=1
-		
-		if i >= max_dialog:
-			#koniec cutscenki tutaj przejscie dalej
+		numLetter = 0
+		label.visible_characters = numLetter
+		var sameSide = false
+		if i >= max:
 			GameManager.next_level.emit()
 		else:
 			if dialogTable[i].who == Who.FIRST:
