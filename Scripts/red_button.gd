@@ -25,4 +25,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func press():
 	$AnimationPlayer.play("press")
+	$AudioStreamPlayer2D.play()
 	$Area2D.set_deferred("monitoring", false)
