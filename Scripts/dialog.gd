@@ -9,12 +9,12 @@ class_name dialog
 @export var dialogTable : Array[dialog_line]
 
 var i : int = 0
-var max : int
+var max_dialog : int
 
 func _ready():
-	max = dialogTable.size()
+	max_dialog = dialogTable.size()
 	
-	if max > 0:
+	if max_dialog > 0:
 		label.text = dialogTable[i].text
 		if dialogTable[i].who == Who.FIRST:
 			first.visible = true
@@ -27,7 +27,7 @@ func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
 		i+=1
 		
-		if i >= max:
+		if i >= max_dialog:
 			#koniec cutscenki tutaj przejscie dalej
 			GameManager.next_level.emit()
 		else:
