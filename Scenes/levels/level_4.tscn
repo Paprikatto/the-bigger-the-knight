@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=4 uid="uid://bibcvyrarxrq2"]
+
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_knspj"]
+[ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="2_db5qt"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_nogro"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="4_ilrkg"]
+[ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="5_2j828"]
+[ext_resource type="Script" path="res://Scripts/slow_down_area.gd" id="5_uvxsh"]
+[ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="6_0msy8"]
+[ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="8_um4mn"]
+
+[sub_resource type="Curve2D" id="Curve2D_40m51"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, 4, -33.9411, -7.07107, 33.9411, 7.07107, 492, 21, 0, 0, 0, 0, 872, 131)
+}
+point_count = 3
+
+[node name="Level4" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEABAAAAAAAAAD+/wIABAAAAAEAAAD+/wMABAAAAAIAAAD//wEABAABAAAAAAD//wIABAABAAEAAAD//wMABAABAAIAAAAAAAEABAABAAAAAAAAAAIABAABAAEAAAAAAAMABAABAAIAAAABAAEAAAAEAAIAAAABAAIABAABAAEAAAABAAMABAABAAIAAAACAAEAAAACAAEAAAACAAIABAACAAEAAAACAAMAAAACAAIAAAABAAAABAAAAAAAAAADAP3/AAADAAAAAAACAAAAAAACAAAAAAAJAAAABAAAAAAAAAAKAAAABAACAAAAAAAHAPz/AAADAAAAAAAJAAEABAAAAAIAAAAKAAEABAACAAIAAAADAAUABAAAAAAAAAAEAAUABAABAAAAAAAFAAUABAABAAAAAAAGAAUABAABAAAAAAAHAAUAAAABAAAAAAAIAAUABAABAAAAAAAJAAUABAABAAAAAAAKAAUABAABAAAAAAALAAUAAAABAAAAAAAMAAUABAABAAAAAAANAAUABAABAAAAAAAOAAUABAACAAAAAAADAAYABAAAAAIAAAAEAAYABAABAAIAAAAFAAYAAAABAAIAAAAGAAYABAABAAIAAAAHAAYABAABAAIAAAAIAAYABAABAAIAAAAJAAYABAABAAIAAAAKAAYABAABAAIAAAALAAYABAABAAIAAAAMAAYABAABAAIAAAANAAYABAABAAIAAAAOAAYABAACAAIAAAASAAMABAAAAAAAAAATAAMABAACAAAAAAASAAQABAAAAAIAAAATAAQABAACAAIAAAAVAAAAAAADAAAAAAASAP7/AAADAAAAAAAPAP3/AAAAAAAAAAAQAP7/AAACAAIAAAAPAP7/BAAAAAIAAAAQAP3/BAACAAAAAAAVAAUABAAAAAAAAAAWAAUABAABAAAAAAAXAAUAAAABAAAAAAAYAAUABAABAAAAAAAZAAUABAABAAAAAAAaAAUABAABAAAAAAAbAAUAAAABAAAAAAAcAAUABAABAAAAAAAVAAYABAAAAAIAAAAWAAYABAABAAIAAAAXAAYABAABAAIAAAAYAAYABAABAAIAAAAZAAYABAABAAIAAAAaAAYABAABAAIAAAAbAAYABAABAAIAAAAcAAYABAABAAIAAAAdAAYABAABAAIAAAAcAAIABAAAAAIAAAAdAAIABAACAAIAAAAcAAEABAAAAAEAAAAcAAAABAAAAAEAAAAcAP//BAAAAAEAAAAcAP7/BAAAAAEAAAAcAP3/BAAAAAEAAAAcAPz/BAAAAAEAAAAdAAEABAACAAEAAAAdAAAABAACAAEAAAAdAP//BAACAAEAAAAdAP7/BAACAAEAAAAdAP3/BAACAAEAAAAdAPz/BAACAAEAAAAcAPv/BAAAAAAAAAAdAPv/BAACAAAAAAAgAAQAAAADAAAAAAAjAAMAAAADAAAAAAAhAAcABAAAAAAAAAAiAAcABAABAAAAAAAjAAcABAABAAAAAAAkAAcABAABAAAAAAAlAAcABAABAAAAAAAmAAcABAABAAAAAAAnAAcABAACAAAAAAAiAAgABAABAAEAAAAjAAgABAABAAEAAAAkAAgABAABAAEAAAAlAAgABAABAAEAAAAmAAgABAABAAEAAAAnAAgABAACAAEAAAAhAAgABAAAAAEAAAAhAAkABAAAAAIAAAAnAAkABAACAAIAAAAiAAkABAABAAIAAAAjAAkABAABAAIAAAAkAAkABAABAAIAAAAlAAkABAABAAIAAAAmAAkABAABAAIAAAAmAAIABAAAAAAAAAAnAAIABAACAAAAAAAnAAMABAACAAIAAAAmAAMABAAAAAIAAAAdAAUABAABAAAAAAAeAAUABAACAAAAAAAeAAYABAACAAIAAAAfAAIAAAADAAAAAAAoAAQAAAAAAAMAAAApAAQAAAABAAMAAAAqAAQAAAABAAMAAAArAAQAAAABAAMAAAAsAAQAAAACAAMAAAAtAAMABAAAAAIAAAAuAAMABAACAAIAAAAtAAIAAAAAAAAAAAAuAAIAAAACAAAAAAAqAAgABAAAAAAAAAArAAgABAABAAAAAAAsAAgABAABAAAAAAAtAAgABAABAAAAAAAuAAgABAABAAAAAAAvAAgABAACAAAAAAAqAAkABAAAAAEAAAAuAAkABAABAAEAAAAvAAkABAACAAEAAAAtAAkABAABAAEAAAAsAAkABAABAAEAAAArAAkABAABAAEAAAAqAAoABAAAAAIAAAArAAoABAABAAIAAAAsAAoABAABAAIAAAAtAAoABAABAAIAAAAuAAoAAAAEAAEAAAAvAAoAAAADAAIAAAAuAAYABAAAAAIAAAAvAAYABAACAAIAAAAuAAUABAAAAAAAAAAvAAUABAACAAAAAAAwAAoABAABAAAAAAAuAAsAAAAAAAEAAAAuAAwABAAAAAIAAAAvAAwABAABAAIAAAAwAAwABAABAAIAAAAxAAwABAABAAIAAAAyAAwABAACAAIAAAAxAAoABAABAAAAAAAyAAoABAACAAAAAAAyAAsABAACAAEAAAAxAAsABAABAAEAAAAwAAsABAABAAEAAAAvAAsABAABAAEAAAA=")
+tile_set = ExtResource("1_knspj")
+
+[node name="Alien" parent="." instance=ExtResource("2_db5qt")]
+position = Vector2(154, -15)
+first_shot_delay = 1.5
+
+[node name="Alien2" parent="." instance=ExtResource("2_db5qt")]
+position = Vector2(194, 65)
+shoot_interval = 0.5
+shot_speed = 150.0
+
+[node name="Alien3" parent="." instance=ExtResource("2_db5qt")]
+position = Vector2(730, 17)
+shoot_interval = 3.0
+
+[node name="Alien4" parent="." instance=ExtResource("2_db5qt")]
+position = Vector2(541, 97)
+look_right = true
+
+[node name="Player" parent="." instance=ExtResource("3_nogro")]
+position = Vector2(-11, 0)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_40m51")
+
+[node name="CameraPathFollow2D" parent="Path2D" node_paths=PackedStringArray("slow_down_areas") instance=ExtResource("4_ilrkg")]
+position = Vector2(4, 4)
+rotation = 0.034822
+slow_down_areas = [NodePath("SlowDownArea")]
+
+[node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
+position = Vector2(250.037, -60.7418)
+rotation = -0.034822
+scale = Vector2(1, 1)
+script = ExtResource("5_uvxsh")
+start = 480
+stop = 600
+speed_factor = 0.7
+
+[node name="RedButton" parent="." instance=ExtResource("5_2j828")]
+position = Vector2(256, -48)
+
+[node name="Doors" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("6_0msy8")]
+position = Vector2(459, 64)
+connected_buttons = [NodePath("../RedButton")]
+
+[node name="RedButton2" parent="." instance=ExtResource("5_2j828")]
+position = Vector2(624, 32)
+
+[node name="RedButton3" parent="." instance=ExtResource("5_2j828")]
+position = Vector2(586, 112)
+
+[node name="Doors2" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("6_0msy8")]
+position = Vector2(744, 113)
+connected_buttons = [NodePath("../RedButton2"), NodePath("../RedButton3")]
+
+[node name="Portal" parent="." instance=ExtResource("8_um4mn")]
+position = Vector2(805, 144)
