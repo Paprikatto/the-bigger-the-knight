@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t0uggyut0ghb" path="res://Sprites/ground2-addons.png" id="1_kbbpy"]
 [ext_resource type="Texture2D" uid="uid://tu318da72n4w" path="res://Sprites/ground2-ver3.png" id="1_tvo2q"]
-[ext_resource type="Texture2D" uid="uid://b8h2g2m8akamu" path="res://Sprites/ground3-rock.png" id="2_mmrdt"]
+[ext_resource type="Texture2D" uid="uid://dqth4gxde0r3d" path="res://Sprites/ground2-snow.png" id="2_kir71"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdsas"]
 texture = ExtResource("1_kbbpy")
@@ -42,7 +42,7 @@ texture = ExtResource("1_kbbpy")
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hopnj"]
-texture = ExtResource("2_mmrdt")
+texture = ExtResource("2_kir71")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0

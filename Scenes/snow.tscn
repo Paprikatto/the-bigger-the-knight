@@ -17,13 +17,14 @@ region = Rect2(4.9664, 0, 5.0336, 5)
 [node name="Node2D" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 48
-lifetime = 10.0
+amount = 64
+lifetime = 7.0
+preprocess = 7.0
 speed_scale = 0.5
 randomness = 1.0
 texture = SubResource("AtlasTexture_hl27q")
 emission_shape = 3
-emission_rect_extents = Vector2(300, 40)
+emission_rect_extents = Vector2(500, 40)
 gravity = Vector2(0, 15)
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
@@ -33,13 +34,14 @@ scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_m0fnl")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-amount = 48
-lifetime = 10.0
+amount = 64
+lifetime = 7.0
+preprocess = 7.0
 speed_scale = 0.5
 randomness = 1.0
 texture = SubResource("AtlasTexture_nrua3")
 emission_shape = 3
-emission_rect_extents = Vector2(300, 40)
+emission_rect_extents = Vector2(500, 40)
 gravity = Vector2(0, 15)
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
