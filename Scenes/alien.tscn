@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://droppdu32auu3"]
+[gd_scene load_steps=11 format=3 uid="uid://droppdu32auu3"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_45nsi"]
 [ext_resource type="Texture2D" uid="uid://vwo1vx6hx57v" path="res://Sprites/alien.png" id="1_ft42d"]
 [ext_resource type="PackedScene" uid="uid://fqj2t66a2u0i" path="res://Scenes/bullet.tscn" id="2_xo2il"]
+[ext_resource type="AudioStream" uid="uid://doi1lhgisrkt" path="res://Sounds/blaster.mp3" id="4_ujn8o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8omf4"]
 radius = 7.0
@@ -167,5 +168,9 @@ libraries = {
 "": SubResource("AnimationLibrary_e6mg6")
 }
 autoplay = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ujn8o")
+volume_db = -5.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

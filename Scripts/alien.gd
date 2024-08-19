@@ -47,6 +47,7 @@ func shoot():
 		return
 	$AnimationPlayer.play("shoot")
 	$AnimationPlayer.queue("idle")
+	$AudioStreamPlayer2D.play()
 
 
 
