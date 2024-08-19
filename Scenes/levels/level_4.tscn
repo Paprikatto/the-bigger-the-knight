@@ -52,7 +52,6 @@ slow_down_areas = [NodePath("SlowDownArea")]
 [node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
 position = Vector2(250.037, -60.7418)
 rotation = -0.034822
-scale = Vector2(1, 1)
 script = ExtResource("5_uvxsh")
 start = 480
 stop = 600

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://xamxnnrjwnlb" path="res://Scenes/next_level_animation.tscn" id="3_r2icj"]
 [ext_resource type="PackedScene" uid="uid://n7vn4k5vp5qv" path="res://Scenes/levels/level_3.tscn" id="4_7ey28"]
 [ext_resource type="PackedScene" uid="uid://bcs3khllts0md" path="res://Scenes/levels/end_game_scene.tscn" id="4_j23kw"]
-[ext_resource type="PackedScene" path="res://Scenes/levels/level_4.tscn" id="6_ablx0"]
+[ext_resource type="PackedScene" uid="uid://bibcvyrarxrq2" path="res://Scenes/levels/level_4.tscn" id="6_ablx0"]
 [ext_resource type="PackedScene" uid="uid://dg8mgqux482x1" path="res://Scenes/sky_background.tscn" id="6_sexkd"]
 
 [node name="Level Manager" type="Node2D"]
