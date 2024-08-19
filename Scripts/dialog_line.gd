@@ -1,5 +1,5 @@
 extends Node2D
-class_name dialog_line
+class_name DialogLine
 
 enum Who{FIRST,SECOND}
 
