@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://yuyyjs61e83q"]
+[gd_scene load_steps=10 format=4 uid="uid://dipqvmh7n65uk"]
 
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_sgebe"]
 [ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="2_i7wbn"]
-[ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="3_2rc0o"]
-[ext_resource type="StyleBox" path="res://black_white_box_texture.tres" id="3_p47t4"]
-[ext_resource type="PackedScene" path="res://Scenes/dialog.tscn" id="4_wyaib"]
+[ext_resource type="StyleBox" uid="uid://tag4i0wnmfop" path="res://black_white_box_texture.tres" id="3_p47t4"]
+[ext_resource type="PackedScene" uid="uid://cq4pxkp75raha" path="res://Scenes/dialog.tscn" id="4_wyaib"]
 [ext_resource type="Script" path="res://Scripts/dialog_line.gd" id="5_7p1co"]
 [ext_resource type="Texture2D" uid="uid://fhuqy8tuen0c" path="res://Sprites/back.png" id="6_ts3x6"]
-
 
 [sub_resource type="Animation" id="Animation_0r2mm"]
 resource_name = "move"
@@ -38,78 +37,35 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_fhsl0"]
-resource_name = "move_rev"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("env:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-130, 0), Vector2(130, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2c5e"]
 _data = {
 "RESET": SubResource("Animation_fxbrf"),
-"move": SubResource("Animation_0r2mm"),
-"move_rev": SubResource("Animation_fhsl0")
+"move": SubResource("Animation_0r2mm")
 }
-=======
-[sub_resource type="LabelSettings" id="LabelSettings_afjkc"]
-font = ExtResource("3_2rc0o")
 
 [node name="CutsceneTalking" type="Node2D"]
 position = Vector2(5, -69)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
-[node name="MainCharacter" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-136, 17)
-scale = Vector2(4, 4)
-texture = ExtResource("2_i7wbn")
-
-
-
-[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
-=======
-[node name="MarginContainer" type="MarginContainer" parent="Window/Panel"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="Window/Panel/MarginContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/font_size = 15
-text = "sdfsdfdsfsdfdagerags gcvbxcvfdgdffdgd fgdfgdfgfdgdfg"
-label_settings = SubResource("LabelSettings_afjkc")
-vertical_alignment = 1
-autowrap_mode = 2
+[node name="Dialog" parent="." node_paths=PackedStringArray("label", "dialogTable") instance=ExtResource("4_wyaib")]
+label = NodePath("../Window/Panel/Label")
+dialogTable = [NodePath("dialog_line"), NodePath("dialog_line2"), NodePath("dialog_line3")]
 
+[node name="dialog_line" type="Node2D" parent="Dialog"]
+script = ExtResource("5_7p1co")
+text = "duap"
+
+[node name="dialog_line2" type="Node2D" parent="Dialog"]
+script = ExtResource("5_7p1co")
+text = "sdfdsgf"
+who = 1
+
+[node name="dialog_line3" type="Node2D" parent="Dialog"]
+script = ExtResource("5_7p1co")
+text = "sgsde"
+who = 1
 
 [node name="Back" type="Sprite2D" parent="."]
 z_index = -2
@@ -122,13 +78,7 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(131, -37)
 rotation = 3.14159
 scale = Vector2(2.202, -2.389)
-=======
-[node name="MainCharacter2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(139, 15)
-scale = Vector2(4, 4)
 texture = ExtResource("2_i7wbn")
-flip_h = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="env"]
 tile_map_data = PackedByteArray("AAD1/wAAAAAAAAAAAAD1/wEAAAAAAAEAAAD1/wIAAAAAAAEAAAD1/wMAAAAAAAEAAAD1/wQAAAAAAAEAAAD1/wUAAAAAAAEAAAD2/wAAAAABAAAAAAD2/wEAAAABAAEAAAD2/wIAAAABAAEAAAD2/wMAAAABAAEAAAD2/wQAAAABAAEAAAD2/wUAAAABAAEAAAD3/wAAAAABAAAAAAD3/wEAAAABAAEAAAD3/wIAAAABAAEAAAD3/wMAAAABAAEAAAD3/wQAAAABAAEAAAD3/wUAAAABAAEAAAD4/wAAAAABAAAAAAD4/wEAAAABAAEAAAD4/wIAAAABAAEAAAD4/wMAAAABAAEAAAD4/wQAAAABAAEAAAD4/wUAAAABAAEAAAD5/wAAAAABAAAAAAD5/wEAAAABAAEAAAD5/wIAAAABAAEAAAD5/wMAAAABAAEAAAD5/wQAAAABAAEAAAD5/wUAAAABAAEAAAD6/wAAAAACAAAAAAD6/wEAAAACAAEAAAD6/wIAAAACAAEAAAD6/wMAAAACAAEAAAD6/wQAAAACAAEAAAD6/wUAAAACAAEAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAEAAAAFAAQAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAAAAAAABAAAAAAAGAAEAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAHAAAAAAABAAAAAAAHAAEAAAABAAEAAAAHAAIAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAIAAAAAAABAAAAAAAIAAEAAAABAAEAAAAIAAIAAAABAAEAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAJAAAAAAABAAAAAAAJAAEAAAABAAEAAAAJAAIAAAABAAEAAAAJAAMAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAKAAAAAAACAAAAAAAKAAEAAAACAAEAAAAKAAIAAAACAAEAAAAKAAMAAAACAAEAAAAKAAQAAAACAAEAAAAKAAUAAAACAAEAAAD1/wYAAAAAAAEAAAD2/wYAAAABAAEAAAD3/wYAAAABAAEAAAD4/wYAAAABAAEAAAD5/wYAAAABAAEAAAD6/wYAAAACAAEAAAAFAAYAAAAAAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAJAAYAAAABAAEAAAAKAAYAAAACAAEAAAD1/wcAAAAAAAEAAAD2/wcAAAABAAEAAAD3/wcAAAABAAEAAAD4/wcAAAABAAEAAAD5/wcAAAABAAEAAAD6/wcAAAACAAEAAAD1/wgAAAAAAAEAAAD2/wgAAAABAAEAAAD3/wgAAAABAAEAAAD4/wgAAAABAAEAAAD5/wgAAAABAAEAAAD6/wgAAAACAAEAAAAFAAcAAAAAAAEAAAAGAAcAAAABAAEAAAAHAAcAAAABAAEAAAAIAAcAAAABAAEAAAAJAAcAAAABAAEAAAAKAAcAAAACAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAACAAEAAAA=")
