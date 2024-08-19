@@ -1,4 +1,4 @@
-extends dialog_line
+extends Node2D
 class_name dialog
 
 @export var animation : AnimationPlayer
@@ -7,47 +7,54 @@ var timer : Timer
 
 @export var label : Label
 
-@export var dialogTable : Array[dialog_line]
+@export var dialogTable : Array[DialogLine]
 
-var lastWho : Who
+var lastWho : DialogLine.Who
 
 var i : int = 0
 var numLetter = 0
-var max : int
+var size : int
 @export var letterDelay = .05
+
+var whole_text_visible: bool = false
 
 func _ready():
 	timer = $Timer
-	max = dialogTable.size()
+	size = dialogTable.size()
 	timer.start(letterDelay)
 	
-	if max > 0:
+	if size > 0:
 		label.text = dialogTable[i].text
 		lastWho = dialogTable[i].who
-		if dialogTable[i].who == Who.FIRST:
+		if dialogTable[i].who == DialogLine.Who.FIRST:
 			animation.play("move_rev")
 		else:
 			animation.play("move")
 		animation.seek(.4)
+
 func _unhandled_input(event):
 	if event is InputEventKey and event.is_pressed():
-		i+=1
-		numLetter = 0
-		label.visible_characters = numLetter
-		var sameSide = false
-		if i >= max:
-			GameManager.next_level.emit()
-		else:
-			if lastWho == dialogTable[i].who:
-				sameSide = true
-			lastWho = dialogTable[i].who
-			if dialogTable[i].who == Who.FIRST and !sameSide:
-				animation.play("move_rev")
+		if label.visible_characters == -1 or label.visible_characters >= label.text.length():
+			i+=1
+			numLetter = 0
+			label.visible_characters = numLetter
+			var sameSide = false
+			if i >= size:
+				GameManager.next_level.emit()
 			else:
-				if !sameSide:
-					animation.play("move")
-			label.text = dialogTable[i].text
-			print(label.text)
+				if lastWho == dialogTable[i].who:
+					sameSide = true
+				lastWho = dialogTable[i].who
+				if dialogTable[i].who == DialogLine.Who.FIRST and !sameSide:
+					animation.play("move_rev")
+				else:
+					if !sameSide:
+						animation.play("move")
+				label.text = dialogTable[i].text
+				print(label.text)
+		else:
+			label.visible_characters = -1
+			numLetter = label.text.length()
 
 
 func _on_timer_timeout():
