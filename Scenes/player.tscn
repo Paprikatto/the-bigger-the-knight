@@ -244,7 +244,7 @@ _data = {
 size = Vector2(5, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcyj8"]
-size = Vector2(8, 6)
+size = Vector2(8, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xglg"]
 size = Vector2(12, 6)
@@ -307,9 +307,12 @@ collision_layer = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="NormalSizeCheck"]
 visible = false
+position = Vector2(5.96046e-08, 0.5)
+scale = Vector2(1.6, 1)
 texture = SubResource("PlaceholderTexture2D_qdc8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NormalSizeCheck"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gcyj8")
 
 [node name="BigSizeCheck" type="Area2D" parent="."]

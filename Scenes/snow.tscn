@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://rxron3ovm1fx"]
+[gd_scene load_steps=5 format=3 uid="uid://b02oht4ddr8kf"]
 
 [ext_resource type="Texture2D" uid="uid://dp0hi3gk2r51k" path="res://Sprites/snow_particles.png" id="1_23rkx"]
 
@@ -14,7 +14,7 @@ colors = PackedColorArray(0.654902, 1, 1, 1, 0.847059, 1, 1, 1, 1, 1, 1, 1)
 atlas = ExtResource("1_23rkx")
 region = Rect2(4.9664, 0, 5.0336, 5)
 
-[node name="Node2D" type="Node2D"]
+[node name="Snow" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 64

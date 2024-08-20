@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsl65pos6en4w"]
+[gd_scene load_steps=5 format=3 uid="uid://dw0g78reqmuwv"]
 
-[ext_resource type="Script" path="res://Scripts/ice.gd" id="1_u3bfo"]
-[ext_resource type="Texture2D" uid="uid://bi7onou4hflpd" path="res://Sprites/ice.png" id="2_mwjqc"]
+[ext_resource type="Script" path="res://Scripts/ice.gd" id="1_v2mq3"]
+[ext_resource type="Texture2D" uid="uid://ddoy0dkrv1lwa" path="res://Sprites/ice2.png" id="2_xyo38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uswdd"]
 size = Vector2(16, 16)
@@ -10,13 +10,13 @@ size = Vector2(16, 16)
 size = Vector2(16, 17)
 
 [node name="Ice" type="StaticBody2D"]
-script = ExtResource("1_u3bfo")
+script = ExtResource("1_v2mq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uswdd")
 
 [node name="Ice" type="Sprite2D" parent="."]
-texture = ExtResource("2_mwjqc")
+texture = ExtResource("2_xyo38")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 16

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cadqjb45qym6o"]
+[gd_scene load_steps=13 format=3 uid="uid://cadqjb45qym6o"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_cereu"]
 [ext_resource type="PackedScene" uid="uid://dipqvmh7n65uk" path="res://Scenes/cutscene_talking.tscn" id="2_n7aep"]
@@ -8,12 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://xamxnnrjwnlb" path="res://Scenes/next_level_animation.tscn" id="3_r2icj"]
 [ext_resource type="PackedScene" uid="uid://n7vn4k5vp5qv" path="res://Scenes/levels/level_3.tscn" id="4_7ey28"]
 [ext_resource type="PackedScene" uid="uid://bcs3khllts0md" path="res://Scenes/levels/end_game_scene.tscn" id="4_j23kw"]
-[ext_resource type="PackedScene" uid="uid://dxe7ta2328fic" path="res://Scenes/levels/level_4.tscn" id="6_ablx0"]
+
+[ext_resource type="PackedScene" uid="uid://bibcvyrarxrq2" path="res://Scenes/levels/level_4.tscn" id="6_ablx0"]
+
 [ext_resource type="PackedScene" uid="uid://dg8mgqux482x1" path="res://Scenes/sky_background.tscn" id="6_sexkd"]
+[ext_resource type="PackedScene" uid="uid://bin8j04fwvk50" path="res://Scenes/levels/level_5.tscn" id="7_hshi6"]
+[ext_resource type="PackedScene" uid="uid://tddmpo7nefh3" path="res://Scenes/levels/level_6.tscn" id="8_bhmub"]
 
 [node name="Level Manager" type="Node2D"]
 script = ExtResource("1_cereu")
-levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6"), ExtResource("6_ablx0")])
+current_level_index = 6
+levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6"), ExtResource("6_ablx0"), ExtResource("7_hshi6"), ExtResource("8_bhmub")])
 end_game_screen = ExtResource("4_j23kw")
 
 [node name="NextLevelAnimation" parent="." instance=ExtResource("3_r2icj")]
