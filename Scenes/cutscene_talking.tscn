@@ -181,7 +181,7 @@ who = 1
 
 [node name="dialog_line9" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "But dad, i don't have hands."
+text = "But dad, I don't have hands."
 
 [node name="dialog_line10" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
