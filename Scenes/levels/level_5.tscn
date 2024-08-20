@@ -307,19 +307,23 @@ layer_0/tile_data = PackedInt32Array(196593, 1, 0, 196600, 131073, 0, 196594, 65
 [node name="Alien" parent="." instance=ExtResource("7_r5445")]
 position = Vector2(280, -128)
 first_shot_delay = 5.0
+biome = 1
 
 [node name="Alien2" parent="." instance=ExtResource("7_r5445")]
 position = Vector2(224, -128)
 first_shot_delay = 2.4
+biome = 1
 
 [node name="Alien3" parent="." instance=ExtResource("7_r5445")]
 position = Vector2(104, -128)
 look_right = true
 first_shot_delay = 1.0
+biome = 1
 
 [node name="Alien4" parent="." instance=ExtResource("7_r5445")]
 position = Vector2(152, -128)
 look_right = true
+biome = 1
 
 [node name="Portal" parent="." instance=ExtResource("8_77wca")]
 position = Vector2(568, -64)
