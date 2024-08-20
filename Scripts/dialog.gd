@@ -33,7 +33,9 @@ func _ready():
 		animation.seek(.4)
 
 func _unhandled_input(event):
-	if event is InputEventKey and event.is_pressed():
+	var keyboard_input:bool = event is InputEventKey and event.is_pressed()
+	var mouse_input:bool = event is InputEventMouseButton and event.is_pressed()
+	if keyboard_input or mouse_input:
 		if label.visible_characters == -1 or label.visible_characters >= label.text.length():
 			i+=1
 			numLetter = 0

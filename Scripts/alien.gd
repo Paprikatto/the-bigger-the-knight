@@ -1,14 +1,25 @@
 extends Node2D
 
+@export_category("Shooting")
 @export var look_right: bool = false
 @export var shoot_interval: float = 2
 @export var first_shot_delay:float = 2
 @export var shot_speed:float = 100
 @export var bullet_scene: PackedScene
 
+@export_category("Variants")
+enum Biome {DEFAULT, WINTER, MAGMA}
+@export var biome: Biome = Biome.DEFAULT
+@export var winter_texture: Texture2D
+@export var magma_texture: Texture2D
 
 var shot_timer:float = 2
 func _ready() -> void:
+	if biome == Biome.WINTER:
+		$Sprite2D.texture = winter_texture
+	elif biome == Biome.MAGMA:
+		$Sprite2D.texture = magma_texture
+	
 	shot_timer = first_shot_delay
 	
 	if look_right:

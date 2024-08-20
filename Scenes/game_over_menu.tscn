@@ -155,6 +155,7 @@ anchor_right = 0.5
 offset_top = -152.0
 offset_bottom = -152.0
 grow_horizontal = 2
+mouse_filter = 2
 script = ExtResource("1_7di3d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -164,10 +165,10 @@ texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_top = -152.0
-offset_right = 264.0
-offset_bottom = -64.0
+offset_left = -327.0
+offset_top = -162.0
+offset_right = 200.0
+offset_bottom = -74.0
 grow_horizontal = 2
 pivot_offset = Vector2(257, 47)
 text = "Game Over"
@@ -179,6 +180,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="ReplayButton" type="TextureButton" parent="CanvasLayer"]

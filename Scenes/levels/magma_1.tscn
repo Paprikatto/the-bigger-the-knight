@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=4 uid="uid://cq8xu2etee7j8"]
+
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_kgkvt"]
+[ext_resource type="PackedScene" uid="uid://c6pjkgtucq8bc" path="res://Scenes/fire.tscn" id="2_yg760"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_r4bwo"]
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="4_aar1a"]
+[ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="5_uw2su"]
+[ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="6_h2pgd"]
+[ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="7_r633o"]
+[ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="8_dpoxd"]
+
+[sub_resource type="Curve2D" id="Curve2D_bi38h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9, -6, -60.7489, 12.4787, 60.7489, -12.4787, 152, -11, -64.2897, 9.92126, 64.2897, -9.92126, 379, -100, 0, 0, 0, 0, 543, -52)
+}
+point_count = 4
+
+[node name="Magma1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wEAAwAAAAAAAAAAAAEAAwABAAAAAAABAAEAAwABAAAAAAACAAEAAwABAAAAAAADAAEAAwABAAAAAAAEAAEAAwABAAAAAAAFAAEAAwACAAAAAAD//wIAAwAAAAIAAAAAAAIAAwABAAIAAAABAAIAAwABAAIAAAACAAIAAwABAAIAAAADAAIAAwABAAIAAAAEAAIAAwABAAIAAAAFAAIAAwACAAIAAAAIAAAAAwADAAAAAAALAP//AwAAAAMAAAAMAP//AwABAAMAAAANAP//AwABAAMAAAAOAP//AwABAAMAAAAPAP//AwACAAMAAAAMAP3/AwAAAAIAAAAMAPv/AwAAAAAAAAAMAPz/AwAAAAEAAAANAPv/AwABAAAAAAANAPz/AwABAAEAAAANAP3/AwABAAIAAAAOAPv/AwACAAAAAAAOAPz/AwACAAEAAAAOAP3/AwACAAIAAAAQAP3/AwADAAAAAAASAPv/AwAAAAAAAAATAPz/AwABAAIAAAASAPz/AwAAAAIAAAATAPv/AwABAAAAAAAUAPv/AwACAAAAAAAUAPz/AwACAAIAAAATAPf/AwAAAAAAAAATAPj/AwAAAAEAAAATAPn/AwAAAAIAAAAUAPf/AwACAAAAAAAUAPj/AwACAAEAAAAUAPn/AwACAAIAAAAWAPz/AwADAAAAAAASAAAAAwADAAAAAAASAP//AgABAAAAAAAYAPr/AwAAAAMAAAAZAPr/AwABAAMAAAAaAPr/AwABAAMAAAAbAPr/AwACAAMAAAAbAP//AwAAAAAAAAAbAAAAAwAAAAIAAAAcAP//AwACAAAAAAAcAAAAAwACAAIAAAAgAP//AwADAAAAAAAkAAAAAwADAAAAAAApAAEAAwAAAAMAAAApAAAAAgAAAAAAAAAmAP7/AwADAAAAAAAqAAEAAwABAAMAAAArAAEAAwABAAMAAAAsAAEAAwABAAMAAAAtAAEAAwACAAMAAAA=")
+tile_set = ExtResource("1_kgkvt")
+
+[node name="Fire" parent="." instance=ExtResource("2_yg760")]
+position = Vector2(71, 8)
+
+[node name="Player" parent="." instance=ExtResource("3_r4bwo")]
+position = Vector2(6, 0)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bi38h")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_aar1a")]
+position = Vector2(-9, -6)
+rotation = -0.0310459
+
+[node name="RedButton" parent="." instance=ExtResource("5_uw2su")]
+position = Vector2(208, -80)
+
+[node name="Alien" parent="." instance=ExtResource("6_h2pgd")]
+position = Vector2(296, -23)
+shoot_interval = 3.5
+biome = 2
+
+[node name="Alien2" parent="." instance=ExtResource("6_h2pgd")]
+position = Vector2(441, -31)
+look_right = true
+biome = 2
+
+[node name="Alien3" parent="." instance=ExtResource("6_h2pgd")]
+position = Vector2(664, -7)
+biome = 2
+
+[node name="Doors" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("7_r633o")]
+position = Vector2(310, -96)
+connected_buttons = [NodePath("../RedButton")]
+
+[node name="Portal" parent="." instance=ExtResource("8_dpoxd")]
+position = Vector2(720, -1)
