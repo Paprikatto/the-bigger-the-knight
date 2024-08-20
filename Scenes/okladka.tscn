@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc4h2qrunrb1j"]
+
+[ext_resource type="Texture2D" uid="uid://msjwrrbuetl0" path="res://Sprites/okladka.png" id="1_ap6dw"]
+[ext_resource type="Texture2D" uid="uid://rft83nc825mu" path="res://Sprites/dad.png" id="2_ulvw5"]
+[ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="3_lw3fp"]
+[ext_resource type="Texture2D" uid="uid://vwo1vx6hx57v" path="res://Sprites/alien.png" id="4_xlt58"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Okladka" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(473, 238)
+texture = ExtResource("1_ap6dw")
+
+[node name="Dad" type="Sprite2D" parent="."]
+z_index = -9
+position = Vector2(564, 211)
+rotation = -0.133015
+scale = Vector2(17.4492, 17.4492)
+texture = ExtResource("2_ulvw5")
+flip_h = true
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(372, 216)
+scale = Vector2(16.5625, 16.5625)
+texture = ExtResource("3_lw3fp")
+
+[node name="Alien" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(693, 325)
+rotation = -0.264257
+scale = Vector2(12.7386, 12.7386)
+texture = ExtResource("4_xlt58")
+hframes = 4
+
+[node name="Alien2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(264, 335)
+rotation = 0.353158
+scale = Vector2(13.4028, 13.4028)
+texture = ExtResource("4_xlt58")
+flip_h = true
+hframes = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(412, 278)
