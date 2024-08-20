@@ -6,7 +6,7 @@ var texture2 : Texture2D = preload("res://Sprites/ice2.png")
 
 func _ready():
 	GameManager.player_changed_size.connect(check_player)
-	check_ice()
+
 
 func check_player():
 	for x in $Area2D.get_overlapping_bodies():

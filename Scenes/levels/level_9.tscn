@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=4 uid="uid://c6hb81n5okn5v"]
+
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_i2m8v"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="2_hvbk1"]
+[ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="3_7yxnd"]
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="4_vmn6j"]
+[ext_resource type="PackedScene" uid="uid://c6pjkgtucq8bc" path="res://Scenes/fire.tscn" id="5_iw7ba"]
+[ext_resource type="PackedScene" uid="uid://bmav3xc81a0j" path="res://Scenes/wooden_floor.tscn" id="6_6x5gl"]
+[ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="7_ewfav"]
+[ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="8_1pqi8"]
+[ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="9_riudu"]
+
+[sub_resource type="Curve2D" id="Curve2D_q3kfx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -344, 0, -71.8155, -85.6746, 71.8155, 85.6746, -72, 64, -1.25992, 0, 1.25992, 0, 264, 120)
+}
+point_count = 3
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-80, -8)
+curve = SubResource("Curve2D_q3kfx")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("1_i2m8v")]
+position = Vector2(-344, 0)
+rotation = 0.231091
+
+[node name="Player" parent="." instance=ExtResource("2_hvbk1")]
+position = Vector2(-416, -8)
+
+[node name="Portal" parent="." instance=ExtResource("3_7yxnd")]
+position = Vector2(192, 128)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADk/wEAAwAAAAAAAADl/wEAAwABAAAAAADm/wEAAwACAAAAAADm/wQAAwADAAEAAADm/wYAAwACAAEAAADm/wcAAwACAAEAAADm/wgAAwACAAEAAADk/wIAAwAAAAEAAADk/wMAAwAAAAEAAADk/wQAAwAAAAEAAADk/wUAAwAAAAEAAADk/wYAAwAAAAEAAADk/wcAAwAAAAEAAADk/wgAAwAAAAEAAADl/wgAAwABAAEAAADl/wcAAwABAAEAAADl/wYAAwABAAEAAADl/wUAAwABAAEAAADl/wQAAwABAAEAAADl/wMAAwABAAEAAADl/wIAAwABAAEAAADk/wkAAwAAAAEAAADk/woAAwAAAAEAAADl/woAAwABAAEAAADl/wkAAwABAAEAAADm/wkAAwACAAEAAADm/woAAwACAAEAAADm/wIAAwADAAIAAADn/wIAAwABAAAAAADo/wIAAwABAAAAAADp/wIAAwABAAAAAADq/wIAAwABAAAAAADr/wIAAwAEAAIAAADs/wIAAwADAAIAAADt/wIAAwABAAAAAADu/wIAAwABAAAAAADv/wIAAwABAAAAAADw/wIAAwABAAAAAADx/wIAAwAEAAIAAADx/wEAAwAAAAAAAADy/wEAAwABAAAAAADz/wEAAwACAAAAAADz/wIAAwACAAEAAADz/wMAAwACAAEAAADz/wQAAwACAAEAAADz/wUAAwACAAEAAADz/wYAAwACAAEAAADz/wcAAwACAAEAAADz/wgAAwACAAEAAADz/wkAAwADAAIAAADz/woAAwABAAEAAADx/wQAAwAEAAEAAADx/wYAAwAAAAEAAADx/wcAAwAAAAEAAADx/wgAAwAAAAEAAADx/wkAAwAAAAEAAADx/woAAwAAAAEAAADy/woAAwABAAEAAADy/wkAAwABAAEAAADy/wgAAwABAAEAAADy/wcAAwABAAEAAADy/wYAAwABAAEAAADy/wUAAwABAAEAAADy/wQAAwABAAEAAADy/wMAAwABAAEAAADy/wIAAwABAAEAAADr/wEAAwAAAAAAAADs/wEAAwACAAAAAADn/wQAAwABAAIAAADo/wQAAwABAAIAAADp/wQAAwABAAIAAADq/wQAAwABAAIAAADr/wQAAwABAAIAAADs/wQAAwABAAIAAADt/wQAAwABAAIAAADu/wQAAwABAAIAAADv/wQAAwABAAIAAADw/wQAAwABAAIAAADm/wMAAwABAAEAAADn/wMAAwABAAEAAADo/wMAAwABAAEAAADp/wMAAwABAAEAAADq/wMAAwABAAEAAADr/wMAAwABAAEAAADs/wMAAwABAAEAAADt/wMAAwABAAEAAADu/wMAAwABAAEAAADv/wMAAwABAAEAAADw/wMAAwABAAEAAADx/wMAAwABAAEAAADx/wUAAwAAAAEAAADm/wUAAwACAAEAAADy//7/AwAAAAIAAADz//7/AwACAAIAAADy//3/AwAAAAEAAADy//z/AwAAAAEAAADy//v/AwAAAAEAAADz//v/AwADAAEAAADz//z/AwACAAEAAADz//3/AwACAAEAAAD2/wEAAwAAAAAAAAD2/wIAAwAAAAEAAAD2/wMAAwAAAAIAAAD2/wYAAwAAAAAAAAD2/wcAAwAAAAEAAAD2/wgAAwAAAAEAAAD2/wkAAwAEAAIAAAD2/woAAwABAAEAAAD3/wEAAwABAAAAAAD4/wEAAwAEAAIAAAD4/wAAAwAAAAEAAAD4////AwAAAAEAAAD4//7/AwAAAAEAAAD4//3/AwAAAAEAAAD4//z/AwAAAAEAAAD5//z/AwACAAEAAAD5//v/AwACAAEAAAD4//v/AwAEAAEAAAD3//v/AwABAAIAAAD2//v/AwABAAIAAAD1//v/AwABAAIAAAD0//v/AwABAAIAAAD3/woAAwABAAEAAAD4/woAAwABAAEAAAD5/woAAwABAAEAAAD6/woAAwACAAEAAAD6/wkAAwADAAEAAAD6/wgAAwABAAEAAAD6/wcAAwADAAIAAAD6/wYAAwACAAAAAAD5/wMAAwACAAIAAAD5/wYAAwABAAAAAAD5/wcAAwABAAEAAAD5/wgAAwABAAEAAAD5/wkAAwABAAEAAAD4/wkAAwABAAEAAAD3/wkAAwABAAEAAAD3/wgAAwABAAEAAAD3/wcAAwABAAEAAAD3/wYAAwABAAAAAAD4/wYAAwABAAAAAAD4/wcAAwABAAEAAAD4/wgAAwABAAEAAAD3/wMAAwABAAIAAAD3/wIAAwABAAEAAAD4/wMAAwABAAIAAAD5/wIAAwACAAEAAAD4/wIAAwABAAEAAAD5//7/AwACAAEAAAD5//3/AwACAAEAAAD5////AwACAAEAAAD5/wAAAwACAAEAAAD5/wEAAwACAAEAAADy//r/AwAAAAAAAADz//r/AwABAAAAAAD0//r/AwABAAAAAAD1//r/AwABAAAAAAD2//r/AwABAAAAAAD3//r/AwABAAAAAAD4//r/AwABAAAAAAD5//r/AwACAAAAAAD0/woAAwABAAEAAAD1/woAAwABAAEAAAD0/wkAAwABAAAAAAD1/wkAAwABAAAAAADk/wsAAwAAAAEAAADl/wsAAwABAAEAAADm/wsAAwACAAEAAADx/wsAAwAAAAEAAADy/wsAAwABAAEAAADz/wsAAwABAAEAAAD0/wsAAwABAAEAAAD1/wsAAwABAAEAAAD2/wsAAwABAAEAAAD3/wsAAwABAAEAAAD4/wsAAwABAAEAAAD5/wsAAwABAAEAAAD6/wsAAwACAAEAAADk/wwAAwAAAAEAAADl/wwAAwABAAEAAADm/wwAAwACAAEAAADx/wwAAwAAAAEAAADy/wwAAwABAAEAAADz/wwAAwABAAEAAAD0/wwAAwABAAEAAAD1/wwAAwABAAEAAAD2/wwAAwABAAEAAAD3/wwAAwABAAEAAAD4/wwAAwABAAEAAAD5/wwAAwABAAEAAAD6/wwAAwACAAEAAADk/w0AAwAAAAEAAADl/w0AAwABAAEAAADm/w0AAwACAAEAAADx/w0AAwAAAAEAAADy/w0AAwABAAEAAADz/w0AAwABAAEAAAD0/w0AAwABAAEAAAD1/w0AAwABAAEAAAD2/w0AAwABAAEAAAD3/w0AAwABAAEAAAD4/w0AAwABAAEAAAD5/w0AAwABAAEAAAD6/w0AAwACAAEAAADk/w4AAwAAAAEAAADl/w4AAwABAAEAAADm/w4AAwACAAEAAADx/w4AAwAAAAEAAADy/w4AAwABAAEAAADz/w4AAwABAAEAAAD0/w4AAwABAAEAAAD1/w4AAwABAAEAAAD2/w4AAwABAAEAAAD3/w4AAwABAAEAAAD4/w4AAwABAAEAAAD5/w4AAwABAAEAAAD6/w4AAwACAAEAAAD7/wgAAwABAAEAAAD8/wgAAwABAAEAAAD9/wgAAwABAAEAAAD+/wgAAwABAAEAAAD//wgAAwABAAEAAAD7/wcAAwABAAAAAAD8/wcAAwABAAAAAAD9/wcAAwABAAAAAAD+/wcAAwABAAAAAAD//wcAAwABAAAAAAD7/wkAAwABAAIAAAD8/wkAAwABAAIAAAD9/wkAAwABAAIAAAD+/wkAAwABAAIAAAD//wkAAwABAAIAAAAAAAgAAwABAAEAAAABAAgAAwABAAEAAAACAAgAAwABAAEAAAADAAgAAwABAAEAAAAEAAgAAwABAAEAAAAAAAcAAwABAAAAAAABAAcAAwABAAAAAAACAAcAAwABAAAAAAADAAcAAwABAAAAAAAEAAcAAwABAAAAAAAAAAkAAwABAAIAAAABAAkAAwABAAIAAAACAAkAAwABAAIAAAADAAkAAwABAAIAAAAEAAkAAwABAAIAAAAFAAkAAwAEAAEAAAAFAAcAAwAEAAIAAAAFAAYAAwAAAAAAAAAFAAoAAwAAAAEAAAAFAAsAAwAAAAEAAAAFAAwAAwAAAAEAAAAFAA0AAwAAAAEAAAAFAA4AAwAAAAEAAAAFAAgAAwABAAEAAAAGAAgAAwABAAEAAAAGAAkAAwABAAEAAAAGAAoAAwABAAEAAAAGAAsAAwABAAEAAAAGAAwAAwABAAEAAAAGAA0AAwABAAEAAAAGAA4AAwABAAEAAAAGAAcAAwABAAEAAAAHAA4AAwACAAEAAAAHAA0AAwACAAEAAAAHAAwAAwACAAEAAAAHAAsAAwACAAEAAAAHAAoAAwADAAEAAAAHAAkAAwADAAIAAAAHAAcAAwACAAEAAAAHAAgAAwACAAEAAAAGAAYAAwABAAAAAAAHAAYAAwACAAAAAAD9/wYAAgAAAAAAAAD//wYAAgAAAAAAAAABAAYAAgAAAAAAAAAIAAkAAwABAAAAAAAIAAoAAwABAAIAAAAJAAoAAwABAAIAAAAKAAoAAwABAAIAAAALAAoAAwABAAIAAAAMAAoAAwACAAIAAAAJAAkAAwABAAAAAAAKAAkAAwABAAAAAAALAAkAAwABAAAAAAAMAAkAAwACAAAAAAAIAAYAAwADAAAAAAA=")
+tile_set = ExtResource("4_vmn6j")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Fire" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-392, 24)
+
+[node name="Fire2" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-376, 24)
+
+[node name="Fire3" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-360, 24)
+
+[node name="Fire4" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-344, 24)
+
+[node name="Fire5" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-296, 24)
+
+[node name="Fire6" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-280, 24)
+
+[node name="Fire7" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-248, 24)
+
+[node name="Fire8" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-264, 24)
+
+[node name="WoodenFloor" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 32)
+
+[node name="WoodenFloor2" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 48)
+
+[node name="WoodenFloor3" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 64)
+
+[node name="WoodenFloor4" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 80)
+
+[node name="WoodenFloor5" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 96)
+
+[node name="WoodenFloor6" parent="Node2D" instance=ExtResource("6_6x5gl")]
+position = Vector2(-176, 112)
+
+[node name="Fire9" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-184, 136)
+
+[node name="Fire10" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-168, 136)
+
+[node name="Fire11" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-72, 104)
+
+[node name="Fire12" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-56, 104)
+
+[node name="Fire13" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(-24, 104)
+
+[node name="Fire14" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(8, 104)
+
+[node name="Fire15" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(56, 104)
+
+[node name="Fire17" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(40, 104)
+
+[node name="Fire16" parent="Node2D" instance=ExtResource("5_iw7ba")]
+position = Vector2(72, 104)
+
+[node name="Doors" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("7_ewfav")]
+position = Vector2(-216, 0)
+connected_buttons = [NodePath("../RedButton")]
+
+[node name="RedButton" parent="." instance=ExtResource("8_1pqi8")]
+position = Vector2(-320, 16)
+
+[node name="RedButton2" parent="." instance=ExtResource("8_1pqi8")]
+position = Vector2(-144, 16)
+
+[node name="Doors2" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("7_ewfav")]
+position = Vector2(-152, 80)
+connected_buttons = [NodePath("../RedButton2")]
+
+[node name="Alien" parent="." instance=ExtResource("9_riudu")]
+position = Vector2(136, 128)
+look_right = true
+shoot_interval = 0.7
+biome = 2
