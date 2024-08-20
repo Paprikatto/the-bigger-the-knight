@@ -139,7 +139,7 @@ zoom = Vector2(4.945, 4.945)
 [node name="Dialog" parent="." node_paths=PackedStringArray("animation", "label", "dialogTable") instance=ExtResource("4_wyaib")]
 animation = NodePath("../AnimationPlayer")
 label = NodePath("../Window/Panel/Label")
-dialogTable = [NodePath("dialog_line"), NodePath("dialog_line2"), NodePath("dialog_line3"), NodePath("dialog_line4"), NodePath("dialog_line5"), NodePath("dialog_line6"), NodePath("dialog_line7"), NodePath("dialog_line8"), NodePath("dialog_line9"), NodePath("dialog_line10")]
+dialogTable = [NodePath("dialog_line"), NodePath("dialog_line2"), NodePath("dialog_line3"), NodePath("dialog_line4"), NodePath("dialog_line5"), NodePath("dialog_line6"), NodePath("dialog_line7"), NodePath("dialog_line8"), NodePath("dialog_line9")]
 letterDelay = 0.05
 
 [node name="dialog_line" type="Node2D" parent="Dialog"]
@@ -182,12 +182,7 @@ who = 1
 
 [node name="dialog_line9" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
-text = "But dad, I don't have hands."
-
-[node name="dialog_line10" type="Node2D" parent="Dialog"]
-script = ExtResource("5_7p1co")
-text = "Then wrap it on your ankle!"
-who = 1
+text = "Uh, let's go I guess"
 
 [node name="env" type="Node2D" parent="."]
 
