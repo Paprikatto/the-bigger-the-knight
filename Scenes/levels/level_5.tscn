@@ -110,53 +110,8 @@ position = Vector2(-104, 40)
 [node name="Node2D8" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-88, 40)
 
-[node name="Node2D9" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 40)
-
-[node name="Node2D10" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 56)
-
-[node name="Node2D11" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 56)
-
 [node name="Node2D12" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-104, 56)
-
-[node name="Node2D13" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-104, 72)
-
-[node name="Node2D14" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 72)
-
-[node name="Node2D15" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 72)
-
-[node name="Node2D16" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 88)
-
-[node name="Node2D17" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 88)
-
-[node name="Node2D18" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-104, 88)
-
-[node name="Node2D19" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-104, 104)
-
-[node name="Node2D20" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 104)
-
-[node name="Node2D21" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 104)
-
-[node name="Node2D22" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-72, 120)
-
-[node name="Node2D23" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 120)
-
-[node name="Node2D24" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-104, 120)
 
 [node name="Node2D67" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(104, -104)
@@ -215,89 +170,8 @@ position = Vector2(-24, -24)
 [node name="Node2D32" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-8, -24)
 
-[node name="Node2D33" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, -24)
-
-[node name="Node2D34" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, -8)
-
-[node name="Node2D35" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, -8)
-
 [node name="Node2D36" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-24, -8)
-
-[node name="Node2D37" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 8)
-
-[node name="Node2D38" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 8)
-
-[node name="Node2D39" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 8)
-
-[node name="Node2D40" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 24)
-
-[node name="Node2D41" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 24)
-
-[node name="Node2D42" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 24)
-
-[node name="Node2D43" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 40)
-
-[node name="Node2D44" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 40)
-
-[node name="Node2D45" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 40)
-
-[node name="Node2D46" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 56)
-
-[node name="Node2D47" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 56)
-
-[node name="Node2D48" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 56)
-
-[node name="Node2D49" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 72)
-
-[node name="Node2D50" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 72)
-
-[node name="Node2D51" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 72)
-
-[node name="Node2D52" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 88)
-
-[node name="Node2D53" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 88)
-
-[node name="Node2D54" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 88)
-
-[node name="Node2D55" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 104)
-
-[node name="Node2D56" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 104)
-
-[node name="Node2D57" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 104)
-
-[node name="Node2D58" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, 120)
-
-[node name="Node2D59" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, 120)
-
-[node name="Node2D60" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, 120)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("6_b456u")
