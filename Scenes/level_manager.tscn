@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cadqjb45qym6o"]
+[gd_scene load_steps=17 format=3 uid="uid://cadqjb45qym6o"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_cereu"]
 [ext_resource type="PackedScene" uid="uid://dipqvmh7n65uk" path="res://Scenes/cutscene_talking.tscn" id="2_n7aep"]
@@ -12,13 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://dg8mgqux482x1" path="res://Scenes/sky_background.tscn" id="6_sexkd"]
 [ext_resource type="PackedScene" uid="uid://bin8j04fwvk50" path="res://Scenes/levels/level_5.tscn" id="7_hshi6"]
 [ext_resource type="PackedScene" uid="uid://tddmpo7nefh3" path="res://Scenes/levels/level_6.tscn" id="8_bhmub"]
+[ext_resource type="PackedScene" uid="uid://kjhqi1mxa64r" path="res://Scenes/levels/level_7.tscn" id="9_kaukb"]
 [ext_resource type="PackedScene" uid="uid://cq8xu2etee7j8" path="res://Scenes/levels/magma_1.tscn" id="9_t8w40"]
+[ext_resource type="PackedScene" path="res://Scenes/levels/level_9.tscn" id="11_afdqb"]
+[ext_resource type="PackedScene" path="res://Scenes/levels/level_10.tscn" id="12_vcfxq"]
 
 [node name="Level Manager" type="Node2D"]
 script = ExtResource("1_cereu")
-levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6"), ExtResource("6_ablx0"), ExtResource("7_hshi6"), ExtResource("8_bhmub"), ExtResource("9_t8w40")])
+levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6"), ExtResource("6_ablx0"), ExtResource("7_hshi6"), ExtResource("8_bhmub"), ExtResource("9_kaukb"), ExtResource("9_t8w40"), ExtResource("11_afdqb"), ExtResource("12_vcfxq")])
 end_game_screen = ExtResource("4_j23kw")
-night_level_indexes = Array[int]([5, 6, 7])
+night_level_indexes = Array[int]([5, 6, 7, 8, 9, 10])
 
 [node name="NextLevelAnimation" parent="." instance=ExtResource("3_r2icj")]
 
