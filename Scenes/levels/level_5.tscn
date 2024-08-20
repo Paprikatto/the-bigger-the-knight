@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bin8j04fwvk50"]
+[gd_scene load_steps=13 format=3 uid="uid://bin8j04fwvk50"]
 
 [ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_ty566"]
 [ext_resource type="PackedScene" uid="uid://b02oht4ddr8kf" path="res://Scenes/snow.tscn" id="2_b8wil"]
@@ -6,13 +6,14 @@
 [ext_resource type="Script" path="res://Scripts/slow_down_area.gd" id="3_534e2"]
 [ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="4_iwmql"]
 [ext_resource type="PackedScene" uid="uid://dsl65pos6en4w" path="res://Scenes/ice.tscn" id="5_uqkgy"]
+[ext_resource type="PackedScene" uid="uid://dw0g78reqmuwv" path="res://Scenes/ice2.tscn" id="6_2too0"]
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="6_b456u"]
 [ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="7_r5445"]
 [ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="8_77wca"]
 
 [sub_resource type="Curve2D" id="Curve2D_8sxkx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -192, -8, -33.3879, 6.29961, 33.3879, -6.29961, 48, -152, -28, -44, 28, 44, 440, -136, 0, 0, 0, 0, 568, -64)
+"points": PackedVector2Array(0, 0, 0, 0, -192, -8, -33.3879, 6.29961, 33.3879, -6.29961, 48, -152, -33.9528, -12.6488, 33.9528, 12.6488, 446, -143, 0, 0, 0, 0, 568, -64)
 }
 point_count = 4
 
@@ -55,17 +56,47 @@ autowrap_mode = 2
 
 [node name="ice" type="Node2D" parent="."]
 
-[node name="Node2D" parent="ice" instance=ExtResource("5_uqkgy")]
+[node name="Ice" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(-104, 24)
+
+[node name="Ice2" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(-88, 8)
+
+[node name="Ice3" parent="ice" instance=ExtResource("6_2too0")]
 position = Vector2(-72, -8)
 
-[node name="Node2D2" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-88, 8)
+[node name="Ice4" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(-24, -40)
+
+[node name="Ice5" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(-8, -56)
+
+[node name="Ice6" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(8, -72)
+
+[node name="Ice7" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(56, -104)
+
+[node name="Ice8" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(72, -120)
+
+[node name="Ice9" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(88, -136)
+
+[node name="Ice10" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(136, -136)
+
+[node name="Ice11" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(184, -136)
+
+[node name="Ice12" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(239, -136)
+
+[node name="Ice13" parent="ice" instance=ExtResource("6_2too0")]
+position = Vector2(296, -136)
 
 [node name="Node2D3" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-72, 8)
-
-[node name="Node2D4" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-104, 24)
 
 [node name="Node2D5" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-88, 24)
@@ -127,39 +158,6 @@ position = Vector2(-88, 120)
 [node name="Node2D24" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-104, 120)
 
-[node name="Node2D25" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(8, -72)
-
-[node name="Node2D61" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(56, -104)
-
-[node name="Node2D62" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(72, -104)
-
-[node name="Node2D63" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(72, -120)
-
-[node name="Node2D64" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(88, -120)
-
-[node name="Node2D65" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(88, -136)
-
-[node name="Node2D83" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(136, -136)
-
-[node name="Node2D84" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(184, -136)
-
-[node name="Node2D85" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(240, -136)
-
-[node name="Node2D86" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(296, -136)
-
-[node name="Node2D66" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(88, -104)
-
 [node name="Node2D67" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(104, -104)
 
@@ -202,14 +200,8 @@ position = Vector2(280, -104)
 [node name="Node2D79" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(296, -120)
 
-[node name="Node2D26" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-8, -56)
-
 [node name="Node2D27" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(8, -56)
-
-[node name="Node2D28" parent="ice" instance=ExtResource("5_uqkgy")]
-position = Vector2(-24, -40)
 
 [node name="Node2D29" parent="ice" instance=ExtResource("5_uqkgy")]
 position = Vector2(-8, -40)
