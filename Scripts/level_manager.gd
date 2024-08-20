@@ -4,7 +4,7 @@ class_name LevelManager
 @export var current_level_index: int = 0
 @export var levels: Array[PackedScene]
 @export var end_game_screen: PackedScene
-
+@export var night_level_indexes: Array[int]
 var current_level: Node2D
 
 func _ready() -> void:
@@ -29,5 +29,10 @@ func next_level():
 	self.call_deferred("add_child",current_level)
 
 func level_loaded():
+	if night_level_indexes.find(current_level_index) != -1:
+		$SkyBackground.set_night()
+	else:
+		$SkyBackground.set_day()
+		
 	$NextLevelAnimation.play_anim(true)
 		

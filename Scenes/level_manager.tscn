@@ -18,6 +18,7 @@
 script = ExtResource("1_cereu")
 levels = Array[PackedScene]([ExtResource("2_n7aep"), ExtResource("2_uu0dm"), ExtResource("4_7ey28"), ExtResource("3_pk6k6"), ExtResource("6_ablx0"), ExtResource("7_hshi6"), ExtResource("8_bhmub"), ExtResource("9_t8w40")])
 end_game_screen = ExtResource("4_j23kw")
+night_level_indexes = Array[int]([5, 6, 7])
 
 [node name="NextLevelAnimation" parent="." instance=ExtResource("3_r2icj")]
 
