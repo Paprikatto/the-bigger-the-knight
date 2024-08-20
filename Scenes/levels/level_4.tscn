@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dxe7ta2328fic"]
+[gd_scene load_steps=12 format=4 uid="uid://dxe7ta2328fic"]
 
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_knspj"]
 [ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="2_db5qt"]
@@ -8,12 +8,17 @@
 [ext_resource type="Script" path="res://Scripts/slow_down_area.gd" id="5_uvxsh"]
 [ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="6_0msy8"]
 [ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="8_um4mn"]
+[ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="9_yq62m"]
 
 [sub_resource type="Curve2D" id="Curve2D_40m51"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 4, 4, -33.9411, -7.07107, 33.9411, 7.07107, 492, 21, 0, 0, 0, 0, 872, 131)
 }
 point_count = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_8t63p"]
+font = ExtResource("9_yq62m")
+font_size = 27
 
 [node name="Level4" type="Node2D"]
 
@@ -76,3 +81,12 @@ connected_buttons = [NodePath("../RedButton2"), NodePath("../RedButton3")]
 
 [node name="Portal" parent="." instance=ExtResource("8_um4mn")]
 position = Vector2(805, 144)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 490.0
+offset_top = -4.0
+offset_right = 838.0
+offset_bottom = 20.0
+scale = Vector2(0.469975, 0.469975)
+text = "You need to press both"
+label_settings = SubResource("LabelSettings_8t63p")
