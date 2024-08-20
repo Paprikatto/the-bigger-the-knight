@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://b300id47geuj8"]
+[gd_scene load_steps=19 format=3 uid="uid://b300id47geuj8"]
 
 [ext_resource type="Texture2D" uid="uid://b5uwtley1wtri" path="res://Sprites/MainCharacter.png" id="1_gwrcp"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sb32l"]
 [ext_resource type="AudioStream" uid="uid://bn840gqfcu3cw" path="res://Sounds/the bigger the guy bg2.mp3" id="3_07ct5"]
 [ext_resource type="Shape2D" uid="uid://dqwdlkbbefo42" path="res://player_shape.tres" id="3_wswqw"]
 [ext_resource type="AudioStream" uid="uid://biymuske0kjmr" path="res://Sounds/the bigger the knight background.mp3" id="4_2vkf8"]
-[ext_resource type="AudioStream" uid="uid://cwbv7jt50ru4p" path="res://Sounds/the bigger the guy 3.mp3" id="4_d4far"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ut4y"]
 size = Vector2(4, 2)
@@ -255,7 +254,7 @@ collision_layer = 16
 script = ExtResource("1_sb32l")
 big_check = NodePath("BigSizeCheck")
 normal_check = NodePath("NormalSizeCheck")
-songs = Array[AudioStreamMP3]([ExtResource("4_2vkf8"), ExtResource("3_07ct5"), ExtResource("4_d4far")])
+songs = Array[AudioStreamMP3]([ExtResource("4_2vkf8"), ExtResource("3_07ct5")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

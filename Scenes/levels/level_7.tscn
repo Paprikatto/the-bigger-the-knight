@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://kjhqi1mxa64r"]
+[gd_scene load_steps=14 format=4 uid="uid://kjhqi1mxa64r"]
 
 [ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_3yiji"]
 [ext_resource type="PackedScene" uid="uid://b02oht4ddr8kf" path="res://Scenes/snow.tscn" id="2_8dsve"]
@@ -10,12 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://bmav3xc81a0j" path="res://Scenes/wooden_floor.tscn" id="8_da41t"]
 [ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="9_u1jn7"]
 [ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="10_7svef"]
+[ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="11_kalj5"]
 
 [sub_resource type="Curve2D" id="Curve2D_1jcxf"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -264, 16, -44.4974, -26.4866, 44.4974, 26.4866, -40, -56, -59.3299, -42.3785, 59.3299, 42.3785, 32, 48, -90.7897, -13.1299, 90.7897, 13.1299, 264, 48, -14.7607, -50.1352, 14.7607, 50.1352, 408, 160, 33.8741, -8.44696, -33.8741, 8.44696, 368, 272, 0, 0, 0, 0, 96, 272, 13.3621, -9.47891, -13.3621, 9.47891, -272, 280)
 }
 point_count = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1kx3"]
+font = ExtResource("11_kalj5")
+font_size = 24
 
 [node name="Node2D" type="Node2D"]
 
@@ -98,3 +103,12 @@ position = Vector2(-160, 304)
 [node name="Doors3" parent="." node_paths=PackedStringArray("connected_buttons") instance=ExtResource("9_u1jn7")]
 position = Vector2(-248, 256)
 connected_buttons = [NodePath("../RedButton3")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -315.0
+offset_top = -72.0
+offset_right = 121.0
+offset_bottom = -49.0
+scale = Vector2(0.573855, 0.573855)
+text = "Be big and jump on wooden floor"
+label_settings = SubResource("LabelSettings_a1kx3")

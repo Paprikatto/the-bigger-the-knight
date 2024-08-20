@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://tddmpo7nefh3"]
+[gd_scene load_steps=14 format=4 uid="uid://tddmpo7nefh3"]
 
 [ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="1_4sguo"]
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="2_6jrl8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="7_ea5y3"]
 [ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="8_myuaj"]
 [ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="9_6rhqr"]
+[ext_resource type="FontFile" uid="uid://cvkysc77lfpwf" path="res://VCR_OSD_MONO_1.001.ttf" id="11_to4ue"]
 [ext_resource type="PackedScene" uid="uid://dw0g78reqmuwv" path="res://Scenes/ice2.tscn" id="11_vo13v"]
 
 [sub_resource type="Curve2D" id="Curve2D_3qfsb"]
@@ -16,6 +17,10 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 10, 0, -30.3855, -11.1919, 30.3855, 11.1919, 197, 31, -16.0459, -20.0092, 16.0459, 20.0092, 297, 101, -10.0649, -20.1298, 10.0649, 20.1298, 422, 198, 0, 0, 0, 0, 547, 210)
 }
 point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_aetcj"]
+font = ExtResource("11_to4ue")
+font_size = 26
 
 [node name="Level6" type="Node2D"]
 
@@ -70,3 +75,13 @@ position = Vector2(296, 120)
 
 [node name="Ice3" parent="." instance=ExtResource("11_vo13v")]
 position = Vector2(312, 120)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 309.0
+offset_top = 70.0
+offset_right = 349.0
+offset_bottom = 93.0
+rotation = 1.59253
+scale = Vector2(0.467754, 0.467754)
+text = "->"
+label_settings = SubResource("LabelSettings_aetcj")

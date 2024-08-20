@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://tddmpo7nefh3" path="res://Scenes/levels/level_6.tscn" id="8_bhmub"]
 [ext_resource type="PackedScene" uid="uid://kjhqi1mxa64r" path="res://Scenes/levels/level_7.tscn" id="9_kaukb"]
 [ext_resource type="PackedScene" uid="uid://cq8xu2etee7j8" path="res://Scenes/levels/magma_1.tscn" id="9_t8w40"]
-[ext_resource type="PackedScene" path="res://Scenes/levels/level_9.tscn" id="11_afdqb"]
-[ext_resource type="PackedScene" path="res://Scenes/levels/level_10.tscn" id="12_vcfxq"]
+[ext_resource type="PackedScene" uid="uid://c6hb81n5okn5v" path="res://Scenes/levels/level_9.tscn" id="11_afdqb"]
+[ext_resource type="PackedScene" uid="uid://ckl2pfr1fw0du" path="res://Scenes/levels/level_10.tscn" id="12_vcfxq"]
 
 [node name="Level Manager" type="Node2D"]
 script = ExtResource("1_cereu")
