@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=4 uid="uid://kjhqi1mxa64r"]
+
+[ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_3yiji"]
+[ext_resource type="PackedScene" uid="uid://rxron3ovm1fx" path="res://Scenes/snow.tscn" id="2_8dsve"]
+[ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_i5mx6"]
+[ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="4_42e1k"]
+[ext_resource type="PackedScene" uid="uid://durbrbrp2id1f" path="res://Scenes/ice.tscn" id="5_3eyka"]
+
+[sub_resource type="Curve2D" id="Curve2D_1jcxf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -264, 16, -44.4974, -26.4866, 44.4974, 26.4866, -40, -56, -59.3299, -42.3785, 59.3299, 42.3785, 32, 48, -68.8651, 3.17833, 68.8651, -3.17833, 256, 72)
+}
+point_count = 4
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1jcxf")
+
+[node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("1_3yiji")]
+position = Vector2(-264, 16)
+rotation = -0.310998
+speed = 50.0
+
+[node name="Node2D" parent="Path2D/CameraPathFollow2D" instance=ExtResource("2_8dsve")]
+position = Vector2(175.308, -171.73)
+
+[node name="Player" parent="." instance=ExtResource("3_i5mx6")]
+position = Vector2(-248, 16)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADv/wIAAQAAAAAAAADx/wIAAQACAAAAAADw/wIAAQABAAAAAADx/wMAAQACAAEAAADx/wQAAQACAAEAAADx/wUAAQACAAEAAADx/wYAAQACAAEAAADx/wcAAQACAAEAAADx/wgAAQACAAEAAADv/wQAAQAAAAEAAADv/wMAAQAAAAEAAADv/wUAAQAAAAEAAADv/wYAAQAAAAEAAADv/wcAAQAAAAEAAADv/wgAAQAAAAEAAADw/wgAAQABAAEAAADw/wcAAQABAAEAAADw/wYAAQABAAEAAADw/wUAAQABAAEAAADw/wQAAQABAAEAAADw/wMAAQABAAEAAAD8/wEAAQADAAAAAAD8/wAAAQADAAAAAAD8////AQADAAAAAAD/////AQADAAAAAAD//wAAAQADAAAAAAD///7/AQADAAAAAAD8//7/AQADAAAAAAD///3/AQADAAAAAAD///z/AQADAAAAAAD///v/AQADAAAAAAD///r/AQADAAAAAAD+//r/AQADAAAAAAD9//r/AQADAAAAAAD8//r/AQADAAAAAAD8/wQAAQAAAAAAAAD8/wUAAQAAAAEAAAD8/wYAAQAAAAEAAAD8/wcAAQAAAAEAAAD9/wQAAQABAAAAAAD9/wUAAQABAAEAAAD9/wYAAQABAAEAAAD9/wcAAQABAAEAAAD+/wQAAQABAAAAAAD+/wUAAQABAAEAAAD+/wYAAQABAAEAAAD+/wcAAQABAAEAAAD//wQAAQACAAAAAAD//wUAAQACAAEAAAD//wYAAQACAAEAAAD//wcAAQACAAEAAAD8/wIAAQADAAAAAAD8/wMAAQADAAAAAAD//wEAAQADAAAAAAD//wIAAQADAAAAAAD//wgAAQACAAEAAAD//wkAAQACAAEAAAD//woAAQACAAEAAAD//wsAAQACAAEAAAD//wwAAQACAAEAAAD//w0AAQACAAEAAAD//w4AAQACAAEAAAD8/wgAAQAAAAEAAAD8/wkAAQAAAAEAAAD8/woAAQAAAAEAAAD8/wsAAQAAAAEAAAD8/wwAAQAAAAEAAAD8/w0AAQAAAAEAAAD8/w4AAQAAAAEAAAD8/w8AAQAAAAEAAAD//w8AAQACAAEAAAD9/wgAAQABAAEAAAD9/wkAAQABAAEAAAD9/woAAQABAAEAAAD9/wsAAQABAAEAAAD9/wwAAQABAAEAAAD9/w0AAQABAAEAAAD9/w4AAQABAAEAAAD9/w8AAQABAAEAAAD+/w8AAQABAAEAAAD+/w4AAQABAAEAAAD+/w0AAQABAAEAAAD+/wwAAQABAAEAAAD+/wsAAQABAAEAAAD+/wgAAQABAAEAAAD+/wkAAQABAAEAAAD+/woAAQABAAEAAAAAAAcAAQAAAAMAAAABAAcAAQACAAMAAAA=")
+tile_set = ExtResource("4_42e1k")
+
+[node name="ice" type="Node2D" parent="."]
+
+[node name="Node2D" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-192, 24)
+
+[node name="Node2D2" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-152, 8)
+
+[node name="Node2D3" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-112, -8)
+
+[node name="Node2D12" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-72, -24)
+
+[node name="Node2D4" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, 24)
+
+[node name="Node2D13" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, 40)
+
+[node name="Node2D14" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, 40)
+
+[node name="Node2D15" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, 56)
+
+[node name="Node2D16" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, 56)
+
+[node name="Node2D5" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, 24)
+
+[node name="Node2D6" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, 8)
+
+[node name="Node2D7" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, 8)
+
+[node name="Node2D8" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, -8)
+
+[node name="Node2D9" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, -8)
+
+[node name="Node2D10" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-24, -24)
+
+[node name="Node2D11" parent="ice" instance=ExtResource("5_3eyka")]
+position = Vector2(-40, -24)

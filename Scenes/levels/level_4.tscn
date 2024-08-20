@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bibcvyrarxrq2"]
+[gd_scene load_steps=10 format=4 uid="uid://dxe7ta2328fic"]
 
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_knspj"]
 [ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="2_db5qt"]
@@ -52,7 +52,6 @@ slow_down_areas = [NodePath("SlowDownArea")]
 [node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
 position = Vector2(250.037, -60.7418)
 rotation = -0.034822
-scale = Vector2(1, 1)
 script = ExtResource("5_uvxsh")
 start = 480
 stop = 600

@@ -136,9 +136,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yc70p")
 zoom = Vector2(4.945, 4.945)
 
 [node name="Dialog" parent="." node_paths=PackedStringArray("animation", "label") instance=ExtResource("4_wyaib")]
-letterDelay = 0.1
 animation = NodePath("../AnimationPlayer")
 label = NodePath("../Window/Panel/Label")
+letterDelay = 0.1
 
 [node name="dialog_line" type="Node2D" parent="Dialog"]
 script = ExtResource("5_7p1co")
