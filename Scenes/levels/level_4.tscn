@@ -51,7 +51,6 @@ curve = SubResource("Curve2D_40m51")
 
 [node name="CameraPathFollow2D" parent="Path2D" node_paths=PackedStringArray("slow_down_areas") instance=ExtResource("4_ilrkg")]
 position = Vector2(4, 4)
-rotation = 0.034822
 slow_down_areas = [NodePath("SlowDownArea")]
 
 [node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]

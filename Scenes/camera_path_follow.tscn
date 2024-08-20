@@ -11,6 +11,7 @@ size = Vector2(700, 20)
 [node name="CameraPathFollow2D" type="PathFollow2D"]
 position = Vector2(-11.0074, 0.914368)
 rotation = 0.00986962
+rotates = false
 loop = false
 script = ExtResource("1_kmbsk")
 speed = 30.0

@@ -41,7 +41,6 @@ curve = SubResource("Curve2D_p5gem")
 
 [node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_ok175")]
 position = Vector2(-41, -4)
-rotation = 0.0207224
 
 [node name="Portal" parent="Path2D" instance=ExtResource("5_l2bu1")]
 position = Vector2(624, 91)

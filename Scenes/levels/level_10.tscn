@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://ckl2pfr1fw0du"]
+[gd_scene load_steps=12 format=4 uid="uid://ckl2pfr1fw0du"]
 
 [ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="1_enhva"]
 [ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="2_7p1p8"]
+[ext_resource type="PackedScene" uid="uid://d0dh88kyjx78n" path="res://Scenes/fire_particles.tscn" id="2_cjbg2"]
 [ext_resource type="PackedScene" uid="uid://dfv25wchgt50i" path="res://Scenes/portal.tscn" id="3_lw8uj"]
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="4_1vtm3"]
 [ext_resource type="PackedScene" uid="uid://c6pjkgtucq8bc" path="res://Scenes/fire.tscn" id="5_0j2u0"]
@@ -24,8 +25,10 @@ curve = SubResource("Curve2D_r4kvb")
 
 [node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("1_enhva")]
 position = Vector2(-352, -64)
-rotation = 0.823841
 speed = 25.0
+
+[node name="Snow" parent="Path2D/CameraPathFollow2D" instance=ExtResource("2_cjbg2")]
+position = Vector2(105.475, 148.966)
 
 [node name="Player" parent="." instance=ExtResource("2_7p1p8")]
 position = Vector2(-416, -48)
