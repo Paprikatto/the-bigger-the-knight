@@ -30,7 +30,6 @@ curve = SubResource("Curve2D_3qfsb")
 
 [node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_fbb33")]
 position = Vector2(10, 0)
-rotation = 0.164281
 
 [node name="SlowDownArea" type="Node2D" parent="Path2D/CameraPathFollow2D"]
 script = ExtResource("5_uyiuy")

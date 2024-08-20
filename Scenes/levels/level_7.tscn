@@ -25,7 +25,6 @@ curve = SubResource("Curve2D_1jcxf")
 
 [node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("1_3yiji")]
 position = Vector2(-264, 16)
-rotation = -0.310998
 speed = 50.0
 
 [node name="Node2D" parent="Path2D/CameraPathFollow2D" instance=ExtResource("2_8dsve")]

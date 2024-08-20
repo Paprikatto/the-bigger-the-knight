@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://cq8xu2etee7j8"]
+[gd_scene load_steps=11 format=4 uid="uid://cq8xu2etee7j8"]
 
 [ext_resource type="TileSet" uid="uid://b5et77t168nv6" path="res://ground_tileset.tres" id="1_kgkvt"]
 [ext_resource type="PackedScene" uid="uid://c6pjkgtucq8bc" path="res://Scenes/fire.tscn" id="2_yg760"]
 [ext_resource type="PackedScene" uid="uid://b300id47geuj8" path="res://Scenes/player.tscn" id="3_r4bwo"]
 [ext_resource type="PackedScene" uid="uid://bhne10ja43b2n" path="res://Scenes/camera_path_follow.tscn" id="4_aar1a"]
+[ext_resource type="PackedScene" uid="uid://d0dh88kyjx78n" path="res://Scenes/fire_particles.tscn" id="5_ar8ap"]
 [ext_resource type="PackedScene" uid="uid://ccr5feo2f8yxt" path="res://Scenes/red_button.tscn" id="5_uw2su"]
 [ext_resource type="PackedScene" uid="uid://droppdu32auu3" path="res://Scenes/alien.tscn" id="6_h2pgd"]
 [ext_resource type="PackedScene" uid="uid://csemcf5823c1m" path="res://Scenes/doors.tscn" id="7_r633o"]
@@ -32,7 +33,10 @@ curve = SubResource("Curve2D_bi38h")
 
 [node name="CameraPathFollow2D" parent="Path2D" instance=ExtResource("4_aar1a")]
 position = Vector2(-9, -6)
-rotation = -0.0310459
+rotation = 0.0
+
+[node name="Snow" parent="Path2D/CameraPathFollow2D" instance=ExtResource("5_ar8ap")]
+position = Vector2(179.013, 195.651)
 
 [node name="RedButton" parent="." instance=ExtResource("5_uw2su")]
 position = Vector2(208, -80)
